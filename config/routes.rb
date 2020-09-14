@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 root to:'homepage#index'
- # get '/index' => 'homepage#index', :as => 'index'
   get '/conditions-generales-de-location' => 'homepage#conditions', :as => 'conditions'
   get '/mentions-legales' => 'homepage#mentions', :as => 'mentions'
 
