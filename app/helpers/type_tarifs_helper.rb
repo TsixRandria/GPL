@@ -1,0 +1,2 @@
+module TypeTarifsHelper
+end

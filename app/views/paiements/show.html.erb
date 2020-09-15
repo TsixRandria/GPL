@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Accompte:</strong>
+  <%= @paiement.accompte %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @paiement.total %>
+</p>
+
+<%= link_to 'Edit', edit_paiement_path(@paiement) %> |
+<%= link_to 'Back', paiements_path %>

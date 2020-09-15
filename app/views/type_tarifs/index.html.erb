@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Type Tarifs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_tarifs.each do |type_tarif| %>
+      <tr>
+        <td><%= type_tarif.titre %></td>
+        <td><%= link_to 'Show', type_tarif %></td>
+        <td><%= link_to 'Edit', edit_type_tarif_path(type_tarif) %></td>
+        <td><%= link_to 'Destroy', type_tarif, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type Tarif', new_type_tarif_path %>
