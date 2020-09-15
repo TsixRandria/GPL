@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
 
         devise_parameter_sanitizer.permit(:sign_up) { |p| p.permit(:nom, :prenom, :telephone, :email, :password) }
     end
-    # validates_presence_of :nom, message: "veuiller indiquer Nom"
-    # validates_presence_of :prenom, message: "veuiller indiquer votre prenom"
-    # validates_presence_of :telephone, message: "veiller indiquer votre numero de telephone"
+    
 end
 

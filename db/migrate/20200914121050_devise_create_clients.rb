@@ -6,9 +6,10 @@ class DeviseCreateClients < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :nom, default: ""
-      t.string :prenom, default: ""
-      t.string :telephone, default: ""
+      t.string :nom,                null: false, default: ""
+      t.string :prenom,             null: false,  default: ""
+      t.string :telephone,          null: false, default: ""
+      
 
       ## Recoverable
       t.string   :reset_password_token
@@ -46,8 +47,6 @@ class DeviseCreateClients < ActiveRecord::Migration[6.0]
     add_index :clients, :telephone,            unique: true
     # add_index :clients, :confirmation_token,   unique: true
     # add_index :clients, :unlock_token,         unique: true
-    validates_presence_of :nom, message: "veuiller indiquer Nom"
-    validates_presence_of :prenom, message: "veuiller indiquer votre prenom"
-    validates_presence_of :telephone, message: "veiller indiquer votre numero de telephone"
+   
   end
 end
