@@ -1,0 +1,62 @@
+<%= form_with(model: modepaie, local: true) do |form| %>
+  <% if modepaie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(modepaie.errors.count, "error") %> prohibited this modepaie from being saved:</h2>
+
+      <ul>
+        <% modepaie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :combinaison %>
+    <%= form.text_field :combinaison %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prixbs %>
+    <%= form.text_field :prixbs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prixms %>
+    <%= form.text_field :prixms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prixhs %>
+    <%= form.text_field :prixhs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datedebut %>
+    <%= form.datetime_select :datedebut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datefin %>
+    <%= form.datetime_select :datefin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tarifjour %>
+    <%= form.text_field :tarifjour %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rubrique %>
+    <%= form.text_field :rubrique %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

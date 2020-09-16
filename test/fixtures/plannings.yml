@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  etat: MyString
+  date_debut: 2020-09-14 14:49:17
+  echeance: 2020-09-14 14:49:17
+
+two:
+  titre: MyString
+  etat: MyString
+  date_debut: 2020-09-14 14:49:17
+  echeance: 2020-09-14 14:49:17
