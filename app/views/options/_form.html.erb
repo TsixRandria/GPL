@@ -1,0 +1,37 @@
+<%= form_with(model: option, local: true) do |form| %>
+  <% if option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+        <% option.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :conducteur %>
+    <%= form.text_field :conducteur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :siegebebe %>
+    <%= form.text_field :siegebebe %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rehausseur %>
+    <%= form.text_field :rehausseur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gps %>
+    <%= form.text_field :gps %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

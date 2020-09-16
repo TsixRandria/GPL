@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  combinaison: MyString
+  prixbs: 
+  prixms: 
+  prixhs: 
+  datedebut: 2020-09-14 15:09:26
+  datefin: 2020-09-14 15:09:26
+  tarifjour: 
+  rubrique: MyString
+
+two:
+  status: MyString
+  combinaison: MyString
+  prixbs: 
+  prixms: 
+  prixhs: 
+  datedebut: 2020-09-14 15:09:26
+  datefin: 2020-09-14 15:09:26
+  tarifjour: 
+  rubrique: MyString

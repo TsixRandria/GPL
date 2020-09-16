@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero vol:</strong>
+  <%= @reservation.numero_vol %>
+</p>
+
+<p>
+  <strong>Compagnie:</strong>
+  <%= @reservation.compagnie %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
