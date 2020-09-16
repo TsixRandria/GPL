@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Modepaies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Combinaison</th>
+      <th>Prixbs</th>
+      <th>Prixms</th>
+      <th>Prixhs</th>
+      <th>Datedebut</th>
+      <th>Datefin</th>
+      <th>Tarifjour</th>
+      <th>Rubrique</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @modepaies.each do |modepaie| %>
+      <tr>
+        <td><%= modepaie.status %></td>
+        <td><%= modepaie.combinaison %></td>
+        <td><%= modepaie.prixbs %></td>
+        <td><%= modepaie.prixms %></td>
+        <td><%= modepaie.prixhs %></td>
+        <td><%= modepaie.datedebut %></td>
+        <td><%= modepaie.datefin %></td>
+        <td><%= modepaie.tarifjour %></td>
+        <td><%= modepaie.rubrique %></td>
+        <td><%= link_to 'Show', modepaie %></td>
+        <td><%= link_to 'Edit', edit_modepaie_path(modepaie) %></td>
+        <td><%= link_to 'Destroy', modepaie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Modepaie', new_modepaie_path %>
