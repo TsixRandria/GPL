@@ -1,3 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Mirrored from www.gplocation.fr/moncompte.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2020 05:53:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Compte client - GP Location</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Accèdez à votre compte GP Location pour éditer vos factures et réservations"/>
+<link rel="canonical" href="moncompte.html"/>
+<link rel="alternate" href="moncompte.html" hreflang="fr"/>
+<meta http-equiv="Content-Language" content="fr"/>
+<link rel="shortcut icon" href="img/favicon.ico"/>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link href="./css/compte.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js%2cjquery-ui-custom/js/jquery-ui-1.8.18.custom.min.js%2cjquery-ui-custom/js/datepicker-fr.js%2ccycle.js%2cjquery.scrollTo-min.j/jquery.fancybox-1.3.4.pack-2.js%2cjquery-u"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$(".aimglisting, .autotitre, .atextlisting").fancybox({
+'width'				: 800,
+'height'			: 480,
+'autoScale'			: false,
+'transitionIn'		: 'none',
+'transitionOut'		: 'none',
+'type'				: 'iframe',
+'overlayColor'		: '#000'
+});
+function initModAdresse(){
+$('#modifier_compte').click(function(){
+$('#ajax-loader-adresse').show();
+//$(".adresseDeFacturation").hide();
+$(".adresseDeFacturation").load("index6f12.html?fond=_ajaxinclude&amp;inc=modif_facturation_compte", function(){
+try {
+$("body select").msDropDown();		
+} catch(e) {
+alert(e.message);
+}
+$('#ajax-loader-adresse').hide();
+//$(".adresseDeFacturation").fadeIn();
+$("#formmodfactur").submit(function(){
+$('#ajax-loader-adresse').show();
+//$(".adresseDeFacturation").hide();
+var params = jQuery("#formmodfactur").serialize();
+$(".adresseDeFacturation").load("/?fond=_ajaxinclude&inc=compte_adresse&" + params, function(){
+$('#ajax-loader-adresse').hide();
+//$(".adresseDeFacturation").fadeIn();
+initModAdresse();
+});
+return false;
+});
+});		
+return false;
+});
+}
+initModAdresse();
+});
+</script>
+</head>
+<body>
+<div id="page">
+<div id="header">
+<div id="reduc" class="largeur"><span id="tel"></span>
+<a href="contact.html" class="lien right mright68">Contact</a>
+<a href="moncompte.html" class="lien right mright0">Espace client</a>
+<a href="index.html"><img src="template/gp-location/img/gp-location.png" width="304" height="70" alt="GP Location"/></a>      
+</div>
+</div>
+<script type="text/javascript">
+$('document').ready(function(){
+$("#boutonmenu").click(function()
+{
+$('#accordian').toggle();
+return false;
+});
+});
+</script>
+<div id="sousmenu">
+<div class="largeur">
+<a href="index.html" id="home"></a>
+<a id="boutonmenu" href="#"></a>
+<div id="accordian">
+<ul>
+<li><a href="location-voiture-aeroport-reunion.html">Aéroport de la Réunion Roland-Garros</a></li>
+<li><a href="location-voiture-sainte-marie.html">Sainte-Marie</a></li>
+<li class="right"><a href="conditions-generales-de-location.html">Conditions générales de location</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="demandeavis">
+<script type="text/javascript">
+$(document).ready(function(){
+$('#forgotmdp').click(function(){
+$.fancybox({
+'scrolling'		: 'no',
+'titleShow'		: false,
+'href' : '#formmdp'
+});
+return false;
+});
+$('#formmdp').submit(function(){
+var params = jQuery("#formmdp").serialize();
+$('#inputforgotmdp').hide();
+$('#ajax-loader-compte').show();
+$("#infos_formmdp").load("/?fond=_ajaxinclude&inc=tunnel_connexion&" + params, function(){
+$('#ajax-loader-compte').hide();
+});
+return false;
+});
+});
+</script>
+
+
+
 
 <% if client_signed_in? %>
   <%= debug @client.nom %>
@@ -84,8 +200,55 @@
 
     </fieldset>
   </div>
-  <h3 class="form-connec-h3" style="padding-top:12px;">Protection des données</h3>
-  <p class="petitp">Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.<br/>Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre <a href="contact.html">formulaire de contact</a>.</p>
-</div>
-
-<div class="clear"></div>
+ </form>
+ <h3 class="form-connec-h3" style="padding-top:12px;">Protection des données</h3>
+ <p class="petitp">Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.<br/>Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre <a href="contact.html">formulaire de contact</a>.</p>
+ </div>
+ </div>
+ <div class="clear"></div>
+ </div>
+ </div> 
+ </div>
+ <div class="clear"></div>    
+ <div id="footer">
+ <div class="largeur">
+ <div class="grid_3 logobas">
+ <span></span><p id="copy">© GP Location</p>
+ </div>
+ <div class="grid_3">
+ <h5>Location de véhicules</h5>
+ <ul>
+ <li><a href="vehicules.html">Nos voitures</a></li>
+ <li><a href="conditions-generales-de-location.html">Conditions générales de location</a></li>
+ <li><a href="moncompte.html">Espace client</a></li>
+ </ul>
+ </div>
+ <div class="grid_3 vcard">
+ <img src="template/gp-location/img/gp-location.png" class="photo none" alt="GP Location"/>
+ <h5 class="fn org">GP Location</h5>
+ <div class="adr">
+ <p class="street-adress">34 rue de la Plantation</p>
+ <p class="tel">06 92 370 380</p>
+ <p><span class="postal-code">97438</span> <span class="locality">Sainte Marie</span></p>
+ </div>
+ <ul>
+ <li><a href="contact.html">Contact</a></li>
+ </ul>
+ </div>
+ <div class="grid_3">
+ <h5>Prise en charge</h5>
+ <ul>
+ <li><a href="location-voiture-aeroport-reunion.html">Aéroport de la Réunion Roland-Garros</a></li>
+ <li><a href="location-voiture-sainte-marie.html">Sainte-Marie</a></li>
+ <li><a href="mentions-legales.html">Mentions légales</a></li>
+ </ul>
+ </div>
+ </div>      
+ <div class="clear"></div>
+ </div><!--
+ -->
+ </body>
+ <!-- Page parsée et évaluée en 0.006 secondes -->
+ 
+ <!-- Mirrored from www.gplocation.fr/moncompte.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2020 05:53:02 GMT -->
+ </html>
