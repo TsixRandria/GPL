@@ -48,7 +48,7 @@
 		<div id="page">
 			<div id="header">
 				<div id="reduc" class="largeur"><span id="tel"></span>
-					<a href=" " class="lien right mright68">Contact</a>
+					<a href="<%= contact_path %>" class="lien right mright68">Contact</a>
 					<a href=" " class="lien right mright0">Espace client</a>
 					<a href=" "><img src="template/gp-location/img/gp-location.png" width="304" height="70" alt="GP Location"/></a>      
 				</div>
@@ -730,6 +730,7 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+
 			</div>
 			<p class="paddingp"><b>Vous arrivez à la Réunion via le port ou l'aéroport ?</b> Située à proximité, notre agence vous propose le service de location de voiture tout en évitant les files d'attente.</p>
 		</div>
@@ -774,6 +775,32 @@
 					<div class="clear"></div>
 					<span class="none" property="name">GP Location</span>
 					<p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="../www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+
+				<div class="clear"></div>    
+		<div id="footer">
+			<div class="largeur">
+				<div class="grid_3 logobas">
+					<span></span><p id="copy">© GP Location</p>
+				</div>
+				<div class="grid_3">
+					<h5>Location de véhicules</h5>
+						<ul>
+							<li><a href="  ">Nos voitures</a></li>
+							<li><a href=" ">Conditions générales de location</a></li>
+							<li><a href=" ">Espace client</a></li>
+						</ul>
+				</div>
+				<div class="grid_3 vcard">
+					<img src="template/gp-location/img/gp-location.png" class="photo none" alt="GP Location"/>
+					<h5 class="fn org">GP Location</h5>
+						<div class="adr">
+							<p class="street-adress">34 rue de la Plantation</p>
+							<p class="tel">06 92 370 380</p>
+							<p><span class="postal-code">97438</span> <span class="locality">Sainte Marie</span></p>
+						</div>
+						<ul>
+							<li><a href="<%= contact_path %>">Contact</a></li>
+						</ul>
 				</div>
 				<div id="avisaccueil">
 					<p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
