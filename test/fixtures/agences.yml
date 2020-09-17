@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heureouv: 2020-09-14 16:59:18
+  heurefer: 2020-09-14 16:59:18
+  heuresup: 2020-09-14 16:59:18
+  ouvsup: 2020-09-14 16:59:18
+  fermex: 2020-09-14 16:59:18
+  jourferr: 2020-09-14 16:59:18
+
+two:
+  heureouv: 2020-09-14 16:59:18
+  heurefer: 2020-09-14 16:59:18
+  heuresup: 2020-09-14 16:59:18
+  ouvsup: 2020-09-14 16:59:18
+  fermex: 2020-09-14 16:59:18
+  jourferr: 2020-09-14 16:59:18

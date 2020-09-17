@@ -2391,7 +2391,7 @@
         font-size: 28px;
         font-style: italic;
         font-weight: 700;
-        diplay: block;
+        display: block;
     }
 
     #logo-occaz {
@@ -2430,7 +2430,7 @@
         font-size: 28px;
         font-style: italic;
         font-weight: 700;
-        diplay: block;
+        display: block;
     }
 
     #occaz-une-bas a {
@@ -2503,7 +2503,7 @@
         font-weight: 700;
         color: #fff;
         background: #369;
-        diplay: block;
+        display: block;
     }
 
     .slider-wrapper {
@@ -2968,7 +2968,7 @@
     #locadetail {
         width: 800px;
         height: 480px;
-        postion: relative;
+        position: relative;
     }
 
     #detail-loc {
@@ -2999,7 +2999,7 @@
         font-weight: 700;
         color: #fff;
         background: #369;
-        diplay: block;
+        display: block;
     }
 
     #detailchapo img {
@@ -3982,6 +3982,7 @@
     .ui-state-focus,
     .ui-widget-content .ui-state-focus,
     .ui-widget-header .ui-state-focus {
+        
     }
 
     .ui-state-hover a,
@@ -4020,7 +4021,7 @@
     .ui-widget-header .ui-state-highlight a {
         color: #363636;
     }
-    }
+
 
     .ui-state-error a,
     .ui-widget-content .ui-state-error a,
