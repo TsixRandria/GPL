@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_065040) do
+ActiveRecord::Schema.define(version: 2020_09_17_110028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 2020_09_15_065040) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assurance_id"], name: "index_categories_on_assurance_id"
     t.index ["voiture_id"], name: "index_categories_on_voiture_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nom"
+    t.string "prenom"
+    t.integer "telephone"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_clients_on_email", unique: true
+    t.index ["nom"], name: "index_clients_on_nom"
+    t.index ["prenom"], name: "index_clients_on_prenom"
+    t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+    t.index ["telephone"], name: "index_clients_on_telephone", unique: true
   end
 
   create_table "modepaies", force: :cascade do |t|
