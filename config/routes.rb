@@ -6,11 +6,9 @@ Rails.application.routes.draw do
 root to:'homepage#index'
   get '/conditions-generales-de-location' => 'homepage#conditions', :as => 'conditions'
   get '/mentions-legales' => 'homepage#mentions', :as => 'mentions'
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 95ae70270f582d5c4eb4b6032e16cbb9937d2d26
+
+
   
  #contact
   get '/contact' => 'contact#contact', :as => 'contact'
