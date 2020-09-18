@@ -56,31 +56,12 @@ initModAdresse();
 
 <div class="grid_465">  
   <div class="fblanc">
-    <h3 class="form-connec-h3">J'ai déjà un compte</h3>
-    <fieldset>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-        
-        <div class="actions">
-          <%= f.submit "valider" %>
-        </div>
-      <% end %>
+    
+    <%= render "devise/sessions/new" %>
     <%= render "devise/shared/links" %>
-    </fieldset>
-  </div>
+</div>    
+</div>
 
-<div>
-  <fieldset>
     <% if client_signed_in? %>
       <%= debug @client.nom %>
       <%= debug @client.prenom %>
@@ -88,26 +69,10 @@ initModAdresse();
       <%= debug @client.email %>
 
     <% end %>
-  </fieldset>
-
-</div>
 
 
-  
-<% if client_signed_in? %>
-  <div>
-      <fieldset>
-        <%= debug @client.nom %>
-        <%= debug @client.prenom %>
-        <%= debug @client.telephone %>
-        <%= debug @client.email %>
-      </fieldset>
-  </div>
-<% end %>
-  
 
 
-<%= render "devise/sessions/new" %>
 
 <div class="fblanc mtop20 noneport">
   <h2>Sécurité de paiement</h2>
