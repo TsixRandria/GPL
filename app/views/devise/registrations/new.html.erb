@@ -77,7 +77,20 @@ initModAdresse();
     <%= render "devise/shared/links" %>
     </fieldset>
   </div>
+
+<div>
+  <fieldset>
+    <% if client_signed_in? %>
+      <%= debug @client.nom %>
+      <%= debug @client.prenom %>
+      <%= debug @client.telephone %>
+      <%= debug @client.email %>
+
+    <% end %>
+  </fieldset>
+
 </div>
+<%= render "devise/sessions/new" %>
 
 <div class="fblanc mtop20 noneport">
   <h2>Sécurité de paiement</h2>
@@ -98,17 +111,17 @@ initModAdresse();
 
         <div class="field">
           <%= f.label :nom %><br />
-          <%= f.text_field :nom %>
+          <%= f.text_field :nom,autofocus: true, autocomplete: "nom" %>
         </div>
 
         <div class="field">
           <%= f.label :prenom %><br />
-          <%= f.text_field :prenom %>
+          <%= f.text_field :prenom, autofocus: true, autocomplete: "prenom" %>
         </div>
 
         <div class="field">
           <%= f.label :telephone %><br />
-          <%= f.number_field :telephone %>
+          <%= f.number_field :telephone, autofocus: true, autocomplete: "telephone" %>
         </div>
 
         <div class="field">
