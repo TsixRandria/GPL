@@ -1,4 +1,5 @@
 
+
 <link href="./css/compte.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr"></script>
 <script type="text/javascript" src="js/jquery-1.7.1.min.js%2cjquery-ui-custom/js/jquery-ui-1.8.18.custom.min.js%2cjquery-ui-custom/js/datepicker-fr.js%2ccycle.js%2cjquery.scrollTo-min.j/jquery.fancybox-1.3.4.pack-2.js%2cjquery-u"></script>
@@ -90,6 +91,22 @@ initModAdresse();
   </fieldset>
 
 </div>
+
+
+  
+<% if client_signed_in? %>
+  <div>
+      <fieldset>
+        <%= debug @client.nom %>
+        <%= debug @client.prenom %>
+        <%= debug @client.telephone %>
+        <%= debug @client.email %>
+      </fieldset>
+  </div>
+<% end %>
+  
+
+
 <%= render "devise/sessions/new" %>
 
 <div class="fblanc mtop20 noneport">
