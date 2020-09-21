@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  get 'port/port'
    devise_for :clients
 
   
@@ -13,6 +14,12 @@ root to:'homepage#index'
  #contact
   get '/contact' => 'contact#contact', :as => 'contact'
 
+
+
+
+
+  #location port
+  get '/location-voiture-sainte-marie' => 'port#port', :as => 'port'
 
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :paiements
