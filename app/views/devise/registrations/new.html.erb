@@ -51,12 +51,12 @@
   <form id="formsoumresa">
   <h3 class="form-connec-h3">Je n'ai pas de compte</h3>
   <div class="clear"></div>
-    <fieldset>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <fieldset class="field">
+      <%= form_for(resource, as: resource_name, url: new_registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
        
-        <fieldset>
+        <fieldset class="field">
         <label for="nom"><span class="label">Nom* </span>
           <%= f.text_field :nom,autofocus: true, autocomplete: "nom" %>
         </label>
@@ -87,7 +87,8 @@
         </label>
 
         <div class="actions">
-          <%= f.submit "valider",class:'lien lienconnec' %>
+          <%= link_to 'valider', new_client_registration_path,class:'lien lienconnec' %>
+        </div>
           
         </fieldset>
       <% end %>
