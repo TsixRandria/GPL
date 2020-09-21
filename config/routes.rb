@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
  
-   devise_for :clients
-
-  
+   devise_for :clients, :as => 'espaceclients'
 root to:'homepage#index'
   get '/conditions-generales-de-location' => 'homepage#conditions', :as => 'conditions'
   get '/mentions-legales' => 'homepage#mentions', :as => 'mentions'
