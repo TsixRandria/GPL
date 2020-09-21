@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
 $.ajaxSetup ({
 	// Disable caching of AJAX responses
@@ -5,9 +6,11 @@ $.ajaxSetup ({
 });
 $("#l_retour").click(function()
 {
+	
 	if(!$(this).is(":checked"))
 	{
 		$('#date-retour').slideDown();
+		
 	}
 	else{
 		$('#date-retour').slideUp();
@@ -470,24 +473,26 @@ $(document).ready(function(){
 				<div class="formtab">
 					<p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
 					<div id="gaucheformulaire">
-						<fieldset class="loueur">
+						
+					<fieldset class="loueur">
 							<label for="lieu_d" id="cocheresa">Lieu de départ</label>
 							<select id="lieu_d" name="lieu_d">
 								<option value="16"    >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
 							</select>
 							<input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
-							<label for="l_retour" id="resacoche">&nbsp;</label>
+							<label for="l_retour" id="resacoche">&nbsp;</label>							
 							<input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
 							<span id="ecartcoche">Retour au même endroit</span>
-						</fieldset>
-						<fieldset id="date-retour" style="display:none">
+					</fieldset>
+
+					<fieldset id="date-retour" style="display:none">
 							<label for="lieu_f">Lieu de retour</label>
 							<select id="lieu_f" name="lieu_f">
 								<option value="16"    >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
 							</select>
 							<input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
 							<div class="pbottom10"></div>
-						</fieldset>
+					</fieldset>
 					</div>
 					<div class="milieuformulaire">
 						<fieldset>
