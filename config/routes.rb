@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  
+
+  get 'port/port'
+
   get 'aeroport/aeroport'
+
    devise_for :clients
 
   
@@ -15,9 +19,18 @@ root to:'homepage#index'
   get '/contact' => 'contact#contact', :as => 'contact'
 
 
+
+
+
+
+  #location port
+  get '/location-voiture-sainte-marie' => 'port#port', :as => 'port'
+
+
  #locationRoland
   get '/location-voiture-aeroport-reunion' => 'aeroport#aeroport', :as => 'aeroport'
   
+
 
 
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
