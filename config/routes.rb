@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
  
 
-  get 'port/port'
+  devise_for :admins
 
-  get 'aeroport/aeroport'
 
-   devise_for :clients
+  devise_for :clients
 
   
 root to:'homepage#index'
