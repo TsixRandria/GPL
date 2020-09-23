@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   get '/conditions-generales-de-location' => 'homepage#conditions', :as => 'conditions'
   get '/mentions-legales' => 'homepage#mentions', :as => 'mentions'
 
- #contact
-  get '/contact' => 'contact#contact', :as => 'contact'
-
   #location port
   get '/location-voiture-sainte-marie' => 'port#port', :as => 'port'
 
