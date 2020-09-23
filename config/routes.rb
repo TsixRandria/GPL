@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
  
 
+  resources :contacts
+    get '/contacts/new' => 'contacts#new'
+
+
+
   devise_for :admins
 
 
