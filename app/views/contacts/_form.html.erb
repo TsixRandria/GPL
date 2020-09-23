@@ -1,38 +1,92 @@
+<link rel="canonical" href="moncompte.html"/>
+<link rel="alternate" href="moncompte.html" hreflang="fr"/>
+<meta http-equiv="Content-Language" content="fr"/>
+<link rel="shortcut icon" href="/img/favicon.ico"/>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link href="/css/contact.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=fr"></script>
+<script type="text/javascript" src="/js/js/jquery-1.7.1.min.js%2cjquery-ui-custom/js/jquery-ui-1.8.18.custom.min.js%2cjquery-ui-custom/js/datepicker-fr.js%2ccycle.js%2cjquery.scrollTo-min.j/jquery.fancybox-1.3.4.pack-2.js%2cjquery-u"></script>
+ 
+<div class="demandeavis">
+<div class="largeur">
+<h1>Vous voulez contacter GP Location ?</h1>
+<div class="grid_465">
+<div class="fblanc">
+<h3 class="pretraith2">Formulaire de contact</h3>
+<p class="paddingp">Pour nous contacter, merci de remplir le formulaire ci-dessous.</p>
+
 
 <%= form_with(model: contact, local: true) do |form| %>
-  <% if contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+                <% if contact.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
-      <ul>
-        <% contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+                    <ul>
+                      <% contact.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
 
-  <div class="field">
-    <%= form.label :nom %>
-    <%= form.text_field :nom %>
-  </div>
+            <form  id="formsoumresa">
+              <fieldset>
+                <label for="nom"><span class="label">Nom*</span>
+                
+               
+                  <%= form.text_field :nom %>
+                </label>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+        
+                <label for="email"><span class="label">E-mail*</span>
+                  <%= form.text_field :email %>
+                </label>
 
-  <div class="field">
-    <%= form.label :telephonejj %>
-    <%= form.text_field :telephone %>
-  </div>
+                
+                <label for="tel"><span class="label">Téléphone*</span>
+                  <%= form.text_field :telephone %>
+                </label>
 
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message %>
-  </div>
+                
+                <label for="message"><span class="label">Message*</span>
+                  <%= form.text_area(:message, :size => "5x4",style:"margin-bottom:20px;width:361px;") %>
+                </label>
+                <div id="captcha" class="g-recaptcha" data-sitekey="6LflL0UUAAAAAElAC62tabhBg8_94yeF_O7NaJbS ">
+                </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                
+                <%= form.button :valider, class: 'lien lienconnec' %>
+                <br/><p class="obliconnec">* Champs obligatoires</p>
+                
+           </fieldset>
+      </form>
+      <div class="clear"></div>
+</div>
+</div>
 <% end %>
+
+
+
+<div class="grid_465 mleft20">
+<div class="fblanc">
+<h3 class="pretraith2">Service client</h3>
+<div class="paddingp">
+<p>Vous avez des questions ou des remarques ? Appelez-nous au 06 92 370 380 !</p>
+</div>
+<h3 class="pretraith2">Site Internet</h3>
+<div class="paddingp">
+<p>Vous rencontrez une difficulté lors de votre réservation sur notre site ? Vous souhaitez nous faire part d'un bug ?</p>
+<p style="padding-bottom:20px;"><b>Merci de remplir le formulaire ci-contre.</b></p>
+</div>
+</div>
+<div class="fblanc mtop20">
+<h3 class="pretraith2">Plan d'accès</h3>
+<div class="google-maps">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14910.02604721598!2d55.511276!3d-20.891932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdd91245bf0d2d552!2sGP+Location!5e0!3m2!1sfr!2sfr!4v1483431590185" width="462" height="337" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="clear"></div>    
