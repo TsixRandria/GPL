@@ -1,0 +1,39 @@
+<%= form_with(model: location, local: true) do |form| %>
+  <% if location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+        <% location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="loueur">
+  <div class="field">
+    <%= form.label :lieu_de_depart %>
+    <%= form.select :lieu_de_depart, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :depart %>
+    <%= form.datetime_select :depart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lieu_de_retour %>
+    <%= form.select :lieu_de_retour, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retour %>
+    <%= form.datetime_select :retour %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</fieldset>
+<% end %>
+

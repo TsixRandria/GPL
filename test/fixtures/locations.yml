@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lieu_de_depart: MyString
+  depart: 2020-09-21 23:34:56
+  lieu_de_retour: MyString
+  retour: 2020-09-21 23:34:56
+
+two:
+  lieu_de_depart: MyString
+  depart: 2020-09-21 23:34:56
+  lieu_de_retour: MyString
+  retour: 2020-09-21 23:34:56

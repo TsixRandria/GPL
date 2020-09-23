@@ -1,5 +1,8 @@
 class HomepageController < ApplicationController
   def index
+  	# @location = location.new
+  	# render template: '/options/new'
+
   end
 
   def mentions

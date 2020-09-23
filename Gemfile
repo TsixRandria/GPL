@@ -59,6 +59,8 @@ gem 'bootstrap'
 gem 'devise'
 gem 'gmaps4rails'
 gem 'faker'
+gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
+gem 'bootstrap'
 
 
 #redimensionner une image

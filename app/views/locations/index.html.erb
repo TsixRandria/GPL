@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lieu de depart</th>
+      <th>Depart</th>
+      <th>Lieu de retour</th>
+      <th>Retour</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.lieu_de_depart %></td>
+        <td><%= location.depart %></td>
+        <td><%= location.lieu_de_retour %></td>
+        <td><%= location.retour %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
