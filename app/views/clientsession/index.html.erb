@@ -1,2 +1,60 @@
-<h1>je suis le page session client</h1>
-<h1>io leleleleelelelellennnna</h1>
+<link href="/css/compte.css" rel="stylesheet" type="text/css"/>
+
+
+<div class="demandeavis">
+<div class="largeur pbottom10">
+<h1>Mon compte client GP Location</h1>
+<div class="entourAdresseDeFacturation">
+<div class="adresseDeFacturation grid_465">
+<div class="fblanc">
+<form id="formmodfactur">
+<h3 class="form-connec-h3">Mes coordonnées</h3>
+<fieldset>					
+<label for="nom"><span class="label"><b>Nom</b></span>
+<input type="text" class="cacheform" id="nom" name="nom" value="">
+</label>
+<label for="prenom"><span class="label"><b>Prénom</b></span>
+<input type="text" class="cacheform" id="prenom" value="" name="">
+</label>							
+</fieldset>	
+<fieldset>			
+<label for="email1" class="hack_label_email_modifcompte"><span class="label"><b>Email</b></span>
+<input type="text" class="cacheform hack_email_modifcompte" id="email1" value="" name="email1">
+</label>		
+<label for="telfixe"><span class="label"><b>Téléphone</b></span>
+<input type="text" class="cacheform" id="telfixe" value="" name="telfixe">
+</label>	
+</fieldset><a href="modifier_compte.php" class="lien lienconnec" id="modifier_compte">Modifier</a><br><br>
+</form>    
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="fblanc grid_465 mleft20">
+<h3 class="form-connec-h3">Modifier mon mot de passe</h3>
+
+
+<form action="https://www.gplocation.fr/?fond=moncompte" method="post" name="formmdp" id="formmdp"> 
+<input type="hidden" name="action" value="modifiercompte">
+<input type="hidden" name="action2" value="comptemdp">
+<fieldset>
+<label for="motdepasse1"><span class="label">Nouveau mot de passe </span>
+<input name="motdepasse1" type="password">
+</label>
+</fieldset>
+<fieldset>
+<label for="motdepasse2"><span class="label">Confirmation </span>
+<input name="motdepasse2" type="password">
+</label>
+<input type="hidden" value="login" name="connexionauto" id="connexionauto">
+<button type="submit" class="lien lienconnec">Valider</button>
+</fieldset>
+</form>
+</div>
+<div class="fblanc grid_465 mleft20 mtop10">
+<h3 class="form-connec-h3">Liste de mes réservations</h3>
+<p>Aucune réservation</p>
+</div>
+<div class="clear"></div>
+</div>
+</div>
