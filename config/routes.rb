@@ -3,9 +3,9 @@ Rails.application.routes.draw do
    
  
   get 'clientsession/index'
-   devise_for :clients, controllers: {
-    registration: 'clients/registrations'
-   }
+   # devise_for :clients, controllers: {
+   #  registration: 'clients/registrations'
+   # }
 
 
 

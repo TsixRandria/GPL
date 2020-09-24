@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
-    t.string "nom", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "nom"
     t.string "prenom"
     t.integer "telephone"
     t.string "reset_password_token"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "lieu_de_depart"
+    t.datetime "depart"
+    t.string "lieu_de_retour"
+    t.datetime "retour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "voiture"
   end
 
   create_table "modepaies", force: :cascade do |t|
