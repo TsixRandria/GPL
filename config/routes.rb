@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+   
  
-   devise_for :clients
+  get 'clientsession/index'
+   devise_for :clients, controllers: {
+    registration: 'clients/registrations'
+   }
 
   
 root to:'homepage#index'
