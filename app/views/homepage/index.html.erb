@@ -1,4 +1,5 @@
 
+
 <div class="clear"></div>
 </div>
 </div>
@@ -28,9 +29,10 @@ var p10 = 'Merci de bien vouloir s\351lectionner un lieu de retour.';
 <form id="formresa" class="lang1" action="" method="post">
 <div class="formtab">
 <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
+<%= form_for :location do |form| %>
 <div id="gaucheformulaire">
 <fieldset class="loueur">
-<%= form_for :location do |form| %>
+
 <label for="lieu_d" id="cocheresa">Lieu de départ</label>
 
 <%= form.select :lieu_de_depart, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, "class"=>'enabled_msddli_selected' %>
@@ -141,7 +143,7 @@ var p10 = 'Merci de bien vouloir s\351lectionner un lieu de retour.';
 </label>
 <label for="confirmresa">
 
-<%= form.submit "louer !", :id => "confirmresa",
+<%= link_to  "louer !", Location.create, :id => "confirmresa",
       :class => "tada", :desabled => "disabled" %>
 
 </label>

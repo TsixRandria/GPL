@@ -67,15 +67,9 @@ ActiveRecord::Schema.define(version: 2020_09_22_093936) do
     t.datetime "depart"
     t.string "lieu_de_retour"
     t.datetime "retour"
-    t.bigint "option_id"
-    t.bigint "reservation_id"
-    t.bigint "voiture_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "voiture"
-    t.index ["option_id"], name: "index_locations_on_option_id"
-    t.index ["reservation_id"], name: "index_locations_on_reservation_id"
-    t.index ["voiture_id"], name: "index_locations_on_voiture_id"
   end
 
   create_table "modepaies", force: :cascade do |t|

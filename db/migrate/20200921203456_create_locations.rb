@@ -5,9 +5,9 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.datetime :depart
       t.string :lieu_de_retour
       t.datetime :retour
-      t.belongs_to :option
-      t.belongs_to :reservation
-      t.belongs_to :voiture
+      # t.belongs_to :option
+      # t.belongs_to :reservation
+      # t.belongs_to :voiture
 
       t.timestamps
     end

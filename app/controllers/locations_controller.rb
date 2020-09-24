@@ -13,7 +13,10 @@ class LocationsController < ApplicationController
 
     
       if @location.save
-        puts "location valider"
+        
+          puts "============================================================================="
+        
+        
       else
         puts "location non valider"
       end
