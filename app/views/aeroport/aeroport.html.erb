@@ -409,225 +409,231 @@ initClickHeat();
 }	
 //]]>
 </script><input type="hidden" name="fond" value="#FOND" />
-<img src="template/gp-location/img/loading-spokes.svg" width="80" height="80" alt="Location de véhicules" class="none"/>
+<img src="/template/gp-location/img/loading-spokes.svg" width="80" height="80" alt="Location de véhicules" class="none"/>
 <div id="fond-resa"></div>
+
 <div class="largeur">
 <form id="formresa" class="lang1" action="" method="post">
-<div class="formtab">
-<p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
-<div id="gaucheformulaire">
-<fieldset class="loueur">
-<label for="lieu_d" id="cocheresa">Lieu de départ</label>
-<select id="lieu_d" name="lieu_d">
-<option value="16" selected="selected"   >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
-</select>
-<input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
-<label for="l_retour" id="resacoche">&nbsp;</label>
-<input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
-<span id="ecartcoche">Retour au même endroit</span>
-</fieldset>
-<fieldset id="date-retour" style="display:none">
-<label for="lieu_f">Lieu de retour</label>
-<select id="lieu_f" name="lieu_f">
-<option value="16" selected="selected"   >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
-</select>
-<input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
-<div class="pbottom10"></div>
-</fieldset>
-</div>
-<div class="milieuformulaire">
-<fieldset>
-<img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
-<label for="date_d">Départ</label>
-<input id="date_d" name="date_d" readonly="readonly" type="text" value="29/08/2020"/>
-</fieldset>
-</div>
-<div class="droiteformulaire">
-<fieldset>
-<label id="lab_heure_d" for="heure_d">&nbsp;</label>
-<select name="heure_d" id="heure_d">				
-<option value="05:30" >05:30</option>
-<option value="06:00" >06:00</option>
-<option value="06:30" >06:30</option>
-<option value="07:00" >07:00</option>
-<option value="07:30" >07:30</option>
-<option value="08:00" >08:00</option>
-<option value="08:30" >08:30</option>
-<option value="09:00" >09:00</option>
-<option value="09:30" >09:30</option>
-<option value="10:00" selected="selected">10:00</option>
-<option value="10:30" >10:30</option>
-<option value="11:00" >11:00</option>
-<option value="11:30" >11:30</option>
-<option value="12:00" >12:00</option>
-<option value="12:30" >12:30</option>
-<option value="13:00" >13:00</option>
-<option value="13:30" >13:30</option>
-<option value="14:00" >14:00</option>
-<option value="14:30" >14:30</option>
-<option value="15:00" >15:00</option>
-<option value="15:30" >15:30</option>
-<option value="16:00" >16:00</option>
-<option value="16:30" >16:30</option>
-<option value="17:00" >17:00</option>
-<option value="17:30" >17:30</option>
-<option value="18:00" >18:00</option>
-<option value="18:30" >18:30</option>
-<option value="19:00" >19:00</option>
-<option value="19:30" >19:30</option>
-<option value="20:00" >20:00</option>
-<option value="20:30" >20:30</option>
-<option value="21:00" >21:00</option>
-<option value="21:30" >21:30</option>
-<option value="22:00" >22:00</option>
-<option value="22:30" >22:30</option>
-<option value="23:00" >23:00</option>
-</select>
-</fieldset>
-</div>
-<div class="milieuformulaire retourtab">
-<fieldset>
-<label for="date_f">Retour</label>
-<input id="date_f" name="date_f" readonly="readonly" type="text" value="07/09/2020"/>
-</fieldset>
-</div>
-<div class="droiteformulaire heure_ftab">
-<fieldset>
-<label id="lab_heure_f" for="heure_f">&nbsp;</label>
-<select name="heure_f" id="heure_f">				
-<option value="05:30" >05:30</option>
-<option value="06:00" >06:00</option>
-<option value="06:30" >06:30</option>
-<option value="07:00" >07:00</option>
-<option value="07:30" >07:30</option>
-<option value="08:00" >08:00</option>
-<option value="08:30" >08:30</option>
-<option value="09:00" >09:00</option>
-<option value="09:30" >09:30</option>
-<option value="10:00" selected="selected">10:00</option>
-<option value="10:30" >10:30</option>
-<option value="11:00" >11:00</option>
-<option value="11:30" >11:30</option>
-<option value="12:00" >12:00</option>
-<option value="12:30" >12:30</option>
-<option value="13:00" >13:00</option>
-<option value="13:30" >13:30</option>
-<option value="14:00" >14:00</option>
-<option value="14:30" >14:30</option>
-<option value="15:00" >15:00</option>
-<option value="15:30" >15:30</option>
-<option value="16:00" >16:00</option>
-<option value="16:30" >16:30</option>
-<option value="17:00" >17:00</option>
-<option value="17:30" >17:30</option>
-<option value="18:00" >18:00</option>
-<option value="18:30" >18:30</option>
-<option value="19:00" >19:00</option>
-<option value="19:30" >19:30</option>
-<option value="20:00" >20:00</option>
-<option value="20:30" >20:30</option>
-<option value="21:00" >21:00</option>
-<option value="21:30" >21:30</option>
-<option value="22:00" >22:00</option>
-<option value="22:30" >22:30</option>
-<option value="23:00" >23:00</option>
-</select>
-</label>
-</fieldset>
-</div>
-<fieldset>
-<div id="list_produits" style="display:none">
-<div id="produits">
-<div id="select_produit_60" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit60" value="60"  />
-<span class="resa-vehititre">Catégorie A</span>		
-</div>
-<div id="select_produit_45" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit45" value="45"  />
-<span class="resa-vehititre">Catégorie B</span>		
-</div>
-<div id="select_produit_61" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit61" value="61"  />
-<span class="resa-vehititre">Catégorie C+</span>		
-</div>
-<div id="select_produit_47" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit47" value="47"  />
-<span class="resa-vehititre">Catégorie D Diesel</span>		
-</div>
-<div id="select_produit_48" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit48" value="48"  />
-<span class="resa-vehititre">Catégorie E Diesel</span>		
-</div>
-<div id="select_produit_63" class="el_prod">
-<input type="radio" style="display:none" name="id_produit" id="produit63" value="63"  />
-<span class="resa-vehititre">Catégorie E Diesel Auto</span>		
-</div>
-</div>
-<div id="nav" class="nav">
-<p><span id="resa-vehicule">Véhicule :</span> <a id="prev2" href="#"></a> <a id="next2" href="#"></a></p>
-</div>
-</div>
-</fieldset>
-<fieldset class="mtop5" style="display:none">
-<label for="nb_km">
-<input id="nb_km" type="text" name="nb_km" value="100" onfocus="if(this.value=='100') this.value = '';" onblur="if(this.value=='') this.value = '100';" class="lcd"/>
-</label>
-</fieldset>
-<fieldset>
-<label class="grid_6 none" id="resavoiture">
-<input type="radio" name="id_categorie" value="1" id="categorie_0" checked="checked" style="display:none" /><span>Voiture</span>
-</label>
-<label class="grid_6 none" id="resautilitaire" style="">
-<input type="radio" name="id_categorie" value="2" id="categorie_1" /><span>Utilitaire</span>
-</label>  
-</fieldset>
-<fieldset>
-<label for="forfait" id="lab_forfait" style="display:none">
-<input id="forfait" type="radio" name="formule" value="1" checked="checked"/>
-</label>
-<label for="tous" id="lab_tous" style="display:none">
-<input id="tous" type="checkbox"  name="tous" checked="checked" value="1"/> 
-</label>
-<label for="confirmresa">
-<button type="submit" name="confirmresa" disabled="disabled" id="confirmresa" class="tada">Louer !</button>
-</label>
-</fieldset>
-<div class="clear"></div>
-</div>
+        <div class="formtab">
+        <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
+        <div id="gaucheformulaire">
+            <fieldset class="loueur">
+                <label for="lieu_d" id="cocheresa">Lieu de départ</label>
+                    <select id="lieu_d" name="lieu_d">
+                    <option value="16" selected="selected"   >Aéroport de la Réunion
+                    </option><option value="17"    >Sainte-Marie
+                    </option>
+                    </select>
+                    <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
+                    <label for="l_retour" id="resacoche">&nbsp;</label>
+                    <input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
+                    <span id="ecartcoche">Retour au même endroit</span>
+            </fieldset>
+            <fieldset id="date-retour" style="display:none">
+                    <label for="lieu_f">Lieu de retour</label>
+                    <select id="lieu_f" name="lieu_f">
+                    <option value="16" selected="selected"   >Aéroport de la Réunion</option>
+                    <option value="17"    >Sainte-Marie</option>
+                    </select>
+                    <input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
+                    <div class="pbottom10"></div>
+            </fieldset>
+        </div>
+        <div class="milieuformulaire">
+            <fieldset>
+                <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
+                <label for="date_d">Départ</label>
+                <input id="date_d" name="date_d" readonly="readonly" type="text" value="29/08/2020"/>
+            </fieldset>
+        </div>
+        <div class="droiteformulaire">
+            <fieldset>
+                <label id="lab_heure_d" for="heure_d">&nbsp;</label>
+                <select name="heure_d" id="heure_d">				
+                    <option value="05:30" >05:30</option>
+                    <option value="06:00" >06:00</option>
+                    <option value="06:30" >06:30</option>
+                    <option value="07:00" >07:00</option>
+                    <option value="07:30" >07:30</option>
+                    <option value="08:00" >08:00</option>
+                    <option value="08:30" >08:30</option>
+                    <option value="09:00" >09:00</option>
+                    <option value="09:30" >09:30</option>
+                    <option value="10:00" selected="selected">10:00</option>
+                    <option value="10:30" >10:30</option>
+                    <option value="11:00" >11:00</option>
+                    <option value="11:30" >11:30</option>
+                    <option value="12:00" >12:00</option>
+                    <option value="12:30" >12:30</option>
+                    <option value="13:00" >13:00</option>
+                    <option value="13:30" >13:30</option>
+                    <option value="14:00" >14:00</option>
+                    <option value="14:30" >14:30</option>
+                    <option value="15:00" >15:00</option>
+                    <option value="15:30" >15:30</option>
+                    <option value="16:00" >16:00</option>
+                    <option value="16:30" >16:30</option>
+                    <option value="17:00" >17:00</option>
+                    <option value="17:30" >17:30</option>
+                    <option value="18:00" >18:00</option>
+                    <option value="18:30" >18:30</option>
+                    <option value="19:00" >19:00</option>
+                    <option value="19:30" >19:30</option>
+                    <option value="20:00" >20:00</option>
+                    <option value="20:30" >20:30</option>
+                    <option value="21:00" >21:00</option>
+                    <option value="21:30" >21:30</option>
+                    <option value="22:00" >22:00</option>
+                    <option value="22:30" >22:30</option>
+                    <option value="23:00" >23:00</option>
+                </select>
+            </fieldset>
+    </div>
+    <div class="milieuformulaire retourtab">
+            <fieldset>
+                <label for="date_f">Retour</label>
+                <input id="date_f" name="date_f" readonly="readonly" type="text" value="07/09/2020"/>
+            </fieldset>
+    </div>
+    <div class="droiteformulaire heure_ftab">
+            <fieldset>
+            <label id="lab_heure_f" for="heure_f">&nbsp;</label>
+            <select name="heure_f" id="heure_f">				
+                    <option value="05:30" >05:30</option>
+                    <option value="06:00" >06:00</option>
+                    <option value="06:30" >06:30</option>
+                    <option value="07:00" >07:00</option>
+                    <option value="07:30" >07:30</option>
+                    <option value="08:00" >08:00</option>
+                    <option value="08:30" >08:30</option>
+                    <option value="09:00" >09:00</option>
+                    <option value="09:30" >09:30</option>
+                    <option value="10:00" selected="selected">10:00</option>
+                    <option value="10:30" >10:30</option>
+                    <option value="11:00" >11:00</option>
+                    <option value="11:30" >11:30</option>
+                    <option value="12:00" >12:00</option>
+                    <option value="12:30" >12:30</option>
+                    <option value="13:00" >13:00</option>
+                    <option value="13:30" >13:30</option>
+                    <option value="14:00" >14:00</option>
+                    <option value="14:30" >14:30</option>
+                    <option value="15:00" >15:00</option>
+                    <option value="15:30" >15:30</option>
+                    <option value="16:00" >16:00</option>
+                    <option value="16:30" >16:30</option>
+                    <option value="17:00" >17:00</option>
+                    <option value="17:30" >17:30</option>
+                    <option value="18:00" >18:00</option>
+                    <option value="18:30" >18:30</option>
+                    <option value="19:00" >19:00</option>
+                    <option value="19:30" >19:30</option>
+                    <option value="20:00" >20:00</option>
+                    <option value="20:30" >20:30</option>
+                    <option value="21:00" >21:00</option>
+                    <option value="21:30" >21:30</option>
+                    <option value="22:00" >22:00</option>
+                    <option value="22:30" >22:30</option>
+                    <option value="23:00" >23:00</option>
+            </select>
+            </label>
+            </fieldset>
+    </div>
+    <fieldset>
+            <div id="list_produits" style="display:none">
+                <div id="produits">
+                    <div id="select_produit_60" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit60" value="60"  />
+                    <span class="resa-vehititre">Catégorie A</span>		
+                    </div>
+                    <div id="select_produit_45" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit45" value="45"  />
+                    <span class="resa-vehititre">Catégorie B</span>		
+                    </div>
+                    <div id="select_produit_61" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit61" value="61"  />
+                    <span class="resa-vehititre">Catégorie C+</span>		
+                    </div>
+                    <div id="select_produit_47" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit47" value="47"  />
+                    <span class="resa-vehititre">Catégorie D Diesel</span>		
+                    </div>
+                    <div id="select_produit_48" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit48" value="48"  />
+                    <span class="resa-vehititre">Catégorie E Diesel</span>		
+                    </div>
+                    <div id="select_produit_63" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit63" value="63"  />
+                    <span class="resa-vehititre">Catégorie E Diesel Auto</span>		
+                    </div>
+                </div>
+                <div id="nav" class="nav">
+                    <p><span id="resa-vehicule">Véhicule :</span> <a id="prev2" href="#"></a> <a id="next2" href="#"></a></p>
+                </div>
+            </div>
+    </fieldset>
+    <fieldset class="mtop5" style="display:none">
+                <label for="nb_km">
+                    <input id="nb_km" type="text" name="nb_km" value="100" onfocus="if(this.value=='100') this.value = '';" onblur="if(this.value=='') this.value = '100';" class="lcd"/>
+                </label>
+    </fieldset>
+    <fieldset>
+                <label class="grid_6 none" id="resavoiture">
+                    <input type="radio" name="id_categorie" value="1" id="categorie_0" checked="checked" style="display:none" /><span>Voiture</span>
+                </label>
+                <label class="grid_6 none" id="resautilitaire" style="">
+                    <input type="radio" name="id_categorie" value="2" id="categorie_1" /><span>Utilitaire</span>
+                </label>  
+    </fieldset>
+    <fieldset>
+                <label for="forfait" id="lab_forfait" style="display:none">
+                    <input id="forfait" type="radio" name="formule" value="1" checked="checked"/>
+                </label>
+                <label for="tous" id="lab_tous" style="display:none">
+                    <input id="tous" type="checkbox"  name="tous" checked="checked" value="1"/> 
+                </label>
+                <label for="confirmresa">
+                    <button type="submit" name="confirmresa" disabled="disabled" id="confirmresa" class="tada">Louer !</button>
+                </label>
+    </fieldset>
+
+                <div class="clear"></div>
+    </div>
 </form>
 </div>
-<p class="mess_confirm" style="display:none">
-Nous vous remercions pour votre réservation, celle-ci a bien été prise en compte.<br />
-</p>
+    <p class="mess_confirm" style="display:none">
+    Nous vous remercions pour votre réservation, celle-ci a bien été prise en compte.<br />
+    </p>
 </div>
-<div id="entour_infos">
-<div id="ajax-loader"></div>
-<div id="confirm_vehicule">	
-</div>
-</div>
+        <div id="entour_infos">
+        <div id="ajax-loader">
+        </div>
+        <div id="confirm_vehicule">	
+        </div>
+        </div>
 
 
 
 
-<div class="hackvid">
-<img src="/template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
-<h2>Besoin d'une voiture de location à l'aéroport de la Réunion Roland-Garros ?</h2>
-<div class="largeur mbottom0">
-<img src="/template/gp-location/img/voiture-accueil.png" width="300" height="198" class="left mright20  restabl10pr imgresp" alt="Location voiture à l'aéroport de la Réunion Roland-Garros"/>
-<p class="paddingp mbottom10">Pour louer une voiture à l'aéroport de la Réunion Roland-Garros, rien de plus simple ! <b>Réservez votre voiture en ligne et pas cher avec GP Location.</b></p>
-<div class="droiteaccueil">
-<div class="fblanc mbottom20">
-<div class="grid_6 paveaccueil">
-<span class="clavier"></span>
-<b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
-<p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture de location au meilleur prix sur notre site Internet<strong>.</strong></p>
-</div>
-<div class="grid_6 paveaccueil">
-<span class="imprimer"></span>
-<b>2</b><h4>Confirmation de<br/>
-votre location</h4>
-<p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
-</div>
+        <div class="hackvid">
+        <img src="/template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
+        <h2>Besoin d'une voiture de location à l'aéroport de la Réunion Roland-Garros ?</h2>
+        <div class="largeur mbottom0">
+        <img src="/template/gp-location/img/voiture-accueil.png" width="300" height="198" class="left mright20  restabl10pr imgresp" alt="Location voiture à l'aéroport de la Réunion Roland-Garros"/>
+        <p class="paddingp mbottom10">Pour louer une voiture à l'aéroport de la Réunion Roland-Garros, rien de plus simple ! <b>Réservez votre voiture en ligne et pas cher avec GP Location.</b></p>
+        <div class="droiteaccueil">
+        <div class="fblanc mbottom20">
+        <div class="grid_6 paveaccueil">
+        <span class="clavier"></span>
+        <b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
+        <p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture de location au meilleur prix sur notre site Internet<strong>.</strong></p>
+        </div>
+        <div class="grid_6 paveaccueil">
+        <span class="imprimer"></span>
+        <b>2</b><h4>Confirmation de<br/>
+        votre location</h4>
+        <p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
+        </div>
 <div class="clear"></div>
 </div>
 </div>
@@ -645,38 +651,38 @@ votre location</h4>
 <li>Ouvert 7j/7 y compris jours fériés</li>
 </ul>
 </div>
-<div class="paddingp">
-<p>L’aéroport international Roland Garros est situé sur la commune de Sainte-Marie, au nord de l’île de la Réunion. Il a été nommé ainsi en l’honneur du célèbre aviateur, né à Saint-Denis, tout près d'ici.</p>
-<p><strong>Dès votre arrivée à l'aéroport, notre agence de location de voiture, GP location, vous prend en charge.</strong></p>
-<p>Étant <strong>ouverts sept jours sur sept, y compris les jours fériés</strong>, nous serons disponibles pour vous accueillir à tout moment de la journée, quelle que soit l'heure de votre arrivée.</p>
-<p><strong>Nous vous attendrons dès votre sortie de l'avion, avec votre nom inscrit sur une pancarte.</strong> Nous vous conduirons à votre véhicule de location et pourrons vous remettre les clés rapidement.</p>
-<p>Que vous veniez sur l’île de la Réunion pour vos vacances ou pour un voyage d'affaires, vous trouverez un véhicule adapté à vos besoins au sein de notre flotte automobile.</p>
-<p><strong>Nos tarifs attractifs comprennent l'assistance sept jours sur sept, ainsi que le kilométrage illimité et une assurance tous risques.</strong> Tout est donc mis en œuvre pour que vous passiez un séjour agréable sur cette île paradisiaque qu’est la Réunion.</p>
-<h2>Que visiter à la Réunion depuis l'aéroport Roland Garros ?</h2>
-<p>À bord de votre voiture de location, partez explorer l’île de la Réunion directement depuis l'aéroport Roland Garros. Le code de la route étant le même qu'en métropole, vous ne devriez pas avoir de problème lié à la conduite.</p>
-<p>Non loin de là se trouve la ville de Saint-Denis, labellisée « Ville d'Art et d'Histoire ». Plus de 50 monuments historiques, dont des maisons créoles et des bâtiments coloniaux, se succèdent à partir du rond-point de la Victoire et tout le long de la rue de Paris. Ne manquez pas la visite du jardin de l'État, qui abrite le Museum d'histoire naturelle, où vous découvrirez de nombreuses plantes exotiques.</p>
-<p>Avec le kilométrage illimité inclus dans notre offre, vous pourrez vous rendre plus loin et rejoindre les plus belles plages de l'île de la Réunion. Votre voiture de location vous facilitant le déplacement, n'hésitez pas à vous rendre à la station balnéaire de Saint-Gilles-les-Bains. Vous pourrez y visiter le seul aquarium de l’île de la Réunion, le musée de Villèle ou encore le jardin d'Éden.</p>
-</div>
+        <div class="paddingp">
+            <p>L’aéroport international Roland Garros est situé sur la commune de Sainte-Marie, au nord de l’île de la Réunion. Il a été nommé ainsi en l’honneur du célèbre aviateur, né à Saint-Denis, tout près d'ici.</p>
+            <p><strong>Dès votre arrivée à l'aéroport, notre agence de location de voiture, GP location, vous prend en charge.</strong></p>
+            <p>Étant <strong>ouverts sept jours sur sept, y compris les jours fériés</strong>, nous serons disponibles pour vous accueillir à tout moment de la journée, quelle que soit l'heure de votre arrivée.</p>
+            <p><strong>Nous vous attendrons dès votre sortie de l'avion, avec votre nom inscrit sur une pancarte.</strong> Nous vous conduirons à votre véhicule de location et pourrons vous remettre les clés rapidement.</p>
+            <p>Que vous veniez sur l’île de la Réunion pour vos vacances ou pour un voyage d'affaires, vous trouverez un véhicule adapté à vos besoins au sein de notre flotte automobile.</p>
+            <p><strong>Nos tarifs attractifs comprennent l'assistance sept jours sur sept, ainsi que le kilométrage illimité et une assurance tous risques.</strong> Tout est donc mis en œuvre pour que vous passiez un séjour agréable sur cette île paradisiaque qu’est la Réunion.</p>
+            <h2>Que visiter à la Réunion depuis l'aéroport Roland Garros ?</h2>
+            <p>À bord de votre voiture de location, partez explorer l’île de la Réunion directement depuis l'aéroport Roland Garros. Le code de la route étant le même qu'en métropole, vous ne devriez pas avoir de problème lié à la conduite.</p>
+            <p>Non loin de là se trouve la ville de Saint-Denis, labellisée « Ville d'Art et d'Histoire ». Plus de 50 monuments historiques, dont des maisons créoles et des bâtiments coloniaux, se succèdent à partir du rond-point de la Victoire et tout le long de la rue de Paris. Ne manquez pas la visite du jardin de l'État, qui abrite le Museum d'histoire naturelle, où vous découvrirez de nombreuses plantes exotiques.</p>
+            <p>Avec le kilométrage illimité inclus dans notre offre, vous pourrez vous rendre plus loin et rejoindre les plus belles plages de l'île de la Réunion. Votre voiture de location vous facilitant le déplacement, n'hésitez pas à vous rendre à la station balnéaire de Saint-Gilles-les-Bains. Vous pourrez y visiter le seul aquarium de l’île de la Réunion, le musée de Villèle ou encore le jardin d'Éden.</p>
+        </div>
 <div class="fblanc avisbas">
-<div id="bavis" vocab="http://schema.org/" typeof="Corporation">
-<h4>Avis de nos clients</h4>
-<ul class="ulvote ulrtl">
-<li class="fu"></li>
-<li class="fu"></li>
-<li class="fu"></li>
-<li class="fu"></li>
-<li class="fu"></li>
-</ul>
-<div class="clear"></div>
-<span class="none" property="name">GP Location</span>
-<p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="https://www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+        <div id="bavis" vocab="http://schema.org/" typeof="Corporation">
+             <h4>Avis de nos clients</h4>
+                <ul class="ulvote ulrtl">
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                </ul>
+             <div class="clear"></div>
+            <span class="none" property="name">GP Location</span>
+            <p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="https://www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+        </div>
+    <div id="avisaccueil">
+        <p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
+        <p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
+    </div>    
 </div>
-<div id="avisaccueil">
-<p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
-<p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
-</div>    
-</div>
-<img src="/client/cache/contenu/956_______aeroport-roland-garros_114.jpg" alt="" title="" border="0" class="imgpretrait" />
+        <img src="/client/cache/contenu/956_______aeroport-roland-garros_114.jpg" alt="" title="" border="0" class="imgpretrait" />
 </div>
 </div>
 <div class="clear"></div> 

@@ -1,14 +1,9 @@
-
-<div class="clear"></div>
-</div>
-</div>
-</div>
 <div id="resa">
-<video autoplay loop>
-<source type="video/mp4" src="/template/gp-location/img/reunion.mp4">
-<source type="video/webm" src="/template/gp-location/img/reunion.webm">
+<video autoplay loop id="vid">
+<source type="video/mp4" src="template/gp-location/img/reunion.mp4">
+<source type="video/webm" src="template/gp-location/img/reunion.webm">
 </video>
-<div class="largeur"><h1>Location de voiture Aéroport de la Réunion</h1></div>
+<div class="largeur"><h1>Location de voiture à la Réunion</h1></div>
 <script type="text/javascript">		
 //<![CDATA[
 var tab_decli_combinee = new Array();
@@ -142,7 +137,7 @@ else if(date_d == ''){ alert( p1 ) }
 else if(date_d == now_str){ alert( p2 ) }
 else if(date_f == ''){ alert( p3 ) }				
 else{			
-var nb_jours = nb_jour(date_d.split('/'),date_f.split('/'));
+var nb_jours = nb_jour(date_d.split('index.html'),date_f.split('index.html'));
 if(nb_jours == 0) nb_jours = 1;
 if(nb_jours <= 3 && day == 5 && formule == '0'){ alert( p8 ) }
 else if((nb_jours > nbJoursMax) && !opt_jour_sup){ alert( p4 ) }
@@ -404,7 +399,7 @@ if(0){
 clickHeatSite = 'resas';
 clickHeatGroup = 'group1';
 //clickHeatServer = 'http://s318850998.onlinehome.fr/resas/lib/clickheat/clickempty.html';
-clickHeatServer = 'http://s318850998.onlinehome.fr/resas/lib/clickheat/click.php';
+clickHeatServer = '../s318850998.onlinehome.fr/resas/lib/clickheat/click.html';
 initClickHeat();
 }	
 //]]>
@@ -412,14 +407,14 @@ initClickHeat();
 <img src="template/gp-location/img/loading-spokes.svg" width="80" height="80" alt="Location de véhicules" class="none"/>
 <div id="fond-resa"></div>
 <div class="largeur">
-<form id="formresa" class="lang1" action="" method="post">
+<form id="formresa" class="lang1" action="#" method="post">
 <div class="formtab">
 <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
 <div id="gaucheformulaire">
 <fieldset class="loueur">
 <label for="lieu_d" id="cocheresa">Lieu de départ</label>
 <select id="lieu_d" name="lieu_d">
-<option value="16" selected="selected"   >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
+<option value="16"    >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
 </select>
 <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
 <label for="l_retour" id="resacoche">&nbsp;</label>
@@ -429,7 +424,7 @@ initClickHeat();
 <fieldset id="date-retour" style="display:none">
 <label for="lieu_f">Lieu de retour</label>
 <select id="lieu_f" name="lieu_f">
-<option value="16" selected="selected"   >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
+<option value="16"    >Aéroport de la Réunion</option><option value="17"    >Sainte-Marie</option>
 </select>
 <input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
 <div class="pbottom10"></div>
@@ -437,7 +432,7 @@ initClickHeat();
 </div>
 <div class="milieuformulaire">
 <fieldset>
-<img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
+<img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.html" width="28" height="28" style="display:none" alt="Loading" />
 <label for="date_d">Départ</label>
 <input id="date_d" name="date_d" readonly="readonly" type="text" value="29/08/2020"/>
 </fieldset>
@@ -605,84 +600,80 @@ Nous vous remercions pour votre réservation, celle-ci a bien été prise en com
 <div id="confirm_vehicule">	
 </div>
 </div>
-
-
-	<div class="hackvid">
-		<img src="template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
-		<h2>Besoin d'une voiture de location à la Réunion ?</h2>
-		<div class="largeur">
-			<img src="template/gp-location/img/dacia-logan.png" width="300" height="206" class="left mright20 restabl10 imgresp" alt="Location voiture Réunion"/>
-			<p class="paddingp mbottom10">Pour louer une voiture à la Réunion, rien de plus simple ! <b>Réservez votre voiture en ligne et pas chère avec GP Location.</b></p>
-			<div class="droiteaccueil">
-				<div class="fblanc mbottom20">
-					<div class="grid_6 paveaccueil">
-						<span class="clavier"></span>
-						<b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
-						<p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture à la réunion au meilleur prix sur notre site Internet<strong>.</strong></p>
-					</div>
-					<div class="grid_6 paveaccueil">
-						<span class="imprimer"></span>
-						<b>2</b><h4>Confirmation de<br/>votre location</h4>
-						<p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
-					</div>
-					<div class="clear"></div>
-				</div>
-
-			</div>
-			<p class="paddingp"><b>Vous arrivez à la Réunion via le port ou l'aéroport ?</b> Située à proximité, notre agence vous propose le service de location de voiture tout en évitant les files d'attente.</p>
-		</div>
-		<div class="clear"></div>
-		<div id="vignaccueil" class="nonetab">
-			<a href="<%= aeroport_path %>" id="vign16"><b>Location voiture</b><br/>Aéroport de la Réunion</a>
-			<a href="<%= port_path%>" id="vign17"><b>Location voiture</b><br/>Sainte-Marie</a>
-			<div class="clear"></div>
-		</div>
-		<div class="largeur">
-			<h2>Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
-			<img src="template/gp-location/img/reunion.jpg" width="300" height="196" class="pretraitpub right restabr10 imgresp" alt="Réunion"/>
-			<p class="paddingp pbottom10">
-			Pour découvrir l'île de la Réunion, une voiture est indispensable. En effet, le réseau de transport public étant limité, avec une voiture de location vous serez libre dans vos déplacements.</p>
-			<div id="avantages">
-				<h4>Les avantages GP Location</h4>
-				<ul>
-					<li>Prise en charge à l'aéroport ou au port avec votre véhicule</li>
-					<li>Kilométrage illimité, assurances incluses</li>
-					<li>Assistance 7j/7, 24h/24</li>
-					<li>Large choix de véhicules récents</li>
-					<li>Ouvert 7j/7 y compris jours fériés</li>
-				</ul>
-			</div>
-			<p class="paddingp pbottom10">Avec le kilométrage illimité inclus dans notre offre de location, vous pourrez sillonner l'île d'un bout à l'autre sereinement. GP location met à votre disposition un large choix de véhicules récents, voire neufs, au sein de sa flotte automobile.</p>
-			<p class="paddingp pbottom10">
-			Que vous veniez seul ou en famille, vous trouverez une voiture adaptée à vos besoins. Notre agence étant située à cinq minutes de l'aéroport de Saint-Denis, nous pouvons vous prendre en charge dès votre sortie de l'avion. Avec notre accueil personnalisé, vous n'aurez pas à attendre et pourrez partir directement rejoindre votre lieu de résidence ou explorer les alentours.</p>
-			<p class="paddingp pbottom10">
-			Nous pouvons vous fournir un siège bébé, un réhausseur ou encore un GPS si besoin. Notre agence étant ouverte sept jours sur sept, y compris les jours fériés, tout est mis en œuvre pour que vous passiez un séjour inoubliable sur l'île de la Réunion.</p>
-			<p class="paddingp pbottom20">
-			D’un rapport qualité/prix très attractif, notre offre de location de voiture aura de quoi vous séduire !</p>
-			<div class="fblanc avisbas">
-				<div id="bavis" vocab="http://schema.org/" typeof="Corporation">
-				<h4>Avis de nos clients</h4>
-				<ul class="ulvote ulrtl">
-				<li class="fu"></li>
-				<li class="fu"></li>
-				<li class="fu"></li>
-				<li class="fu"></li>
-				<li class="fu"></li>
-				</ul>
-				<div class="clear"></div>
-				<span class="none" property="name">GP Location</span>
-				<p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="../www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
-				</div>
-				<div id="avisaccueil">
-				<p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
-				<p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
-				</div>    
-				</div>
-				<img src="template/gp-location/img/voiture-accueil.png" width="300" height="198" class="right mleft20 restabr10 imgresp" alt="Location Dacia Duster Réunion"/>
-				<h3>Des visites incontournables sur l'île de la Réunion</h3>
-				<p class="paddingp mbottom10">Cette île volcanique, située en plein cœur de l'océan Indien, vous offrira des expériences inoubliables. Comme la plongée sous-marine, au milieu des différentes espèces aquatiques telles que les dauphins, les baleines, les tortues marines ou encore les requins. Avec votre voiture de location, vous pourrez rejoindre le point de départ de nombreuses randonnées qui cheminent jusqu'en haut des différents pitons, dont le fameux Piton de la Fournaise, toujours en activité volcanique. Grâce à notre assistance, disponible sept jours sur sept et 24 h/24, vous n’aurez pas à vous soucier d’un quelconque ennui mécanique.</p>
-				<p class="paddingp mbottom20">En voiture, vous pourrez rallier le sud de l’île pour rejoindre la ville de Saint-Pierre et profiter de son front de mer très animé. Ne manquez pas non plus la visite du Cirque de Mafate ou encore celui de Cilaos, qui vous offriront une vue grandiose et panoramique de l’île. L’île de la Réunion ayant une superficie de 2 500 km² environ, de nombreux endroits paradisiaques sont à découvrir. Les plages de sable fin aux eaux turquoise n’attendent que vous. C'est pourquoi notre gamme de véhicules de location est aussi variée, pour vous offrir un séjour unique et sécurisant.</p>
-				</div>
-				</div>
-				<div class="clear"></div>    
-			
+<div class="hackvid">
+<img src="template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
+<h2>Besoin d'une voiture de location à la Réunion ?</h2>
+<div class="largeur">
+<img src="template/gp-location/img/dacia-logan.png" width="300" height="206" class="left mright20 restabl10 imgresp" alt="Location voiture Réunion"/>
+<p class="paddingp mbottom10">Pour louer une voiture à la Réunion, rien de plus simple ! <b>Réservez votre voiture en ligne et pas chère avec GP Location.</b></p>
+<div class="droiteaccueil">
+<div class="fblanc mbottom20">
+<div class="grid_6 paveaccueil">
+<span class="clavier"></span>
+<b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
+<p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture à la réunion au meilleur prix sur notre site Internet<strong>.</strong></p>
+</div>
+<div class="grid_6 paveaccueil">
+<span class="imprimer"></span>
+<b>2</b><h4>Confirmation de<br/>votre location</h4>
+<p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<p class="paddingp"><b>Vous arrivez à la Réunion via le port ou l'aéroport ?</b> Située à proximité, notre agence vous propose le service de location de voiture tout en évitant les files d'attente.</p>
+</div>
+<div class="clear"></div>
+<div id="vignaccueil" class="nonetab">
+<a href="location-voiture-aeroport-reunion.html" id="vign16"><b>Location voiture</b><br/>Aéroport de la Réunion</a>
+<a href="location-voiture-sainte-marie.html" id="vign17"><b>Location voiture</b><br/>Sainte-Marie</a>
+<div class="clear"></div>
+</div>
+<div class="largeur">
+<h2>Découvrir l'île de la Réunion à bord d'une voiture de location</h2>
+<img src="template/gp-location/img/reunion.jpg" width="300" height="196" class="pretraitpub right restabr10 imgresp" alt="Réunion"/>
+<p class="paddingp pbottom10">
+Pour découvrir l'île de la Réunion, une voiture est indispensable. En effet, le réseau de transport public étant limité, avec une voiture de location vous serez libre dans vos déplacements.</p>
+<div id="avantages">
+<h4>Les avantages GP Location</h4>
+<ul>
+<li>Prise en charge à l'aéroport ou au port avec votre véhicule</li>
+<li>Kilométrage illimité, assurances incluses</li>
+<li>Assistance 7j/7, 24h/24</li>
+<li>Large choix de véhicules récents</li>
+<li>Ouvert 7j/7 y compris jours fériés</li>
+</ul>
+</div>
+<p class="paddingp pbottom10">Avec le kilométrage illimité inclus dans notre offre de location, vous pourrez sillonner l'île d'un bout à l'autre sereinement. GP location met à votre disposition un large choix de véhicules récents, voire neufs, au sein de sa flotte automobile.</p>
+<p class="paddingp pbottom10">
+Que vous veniez seul ou en famille, vous trouverez une voiture adaptée à vos besoins. Notre agence étant située à cinq minutes de l'aéroport de Saint-Denis, nous pouvons vous prendre en charge dès votre sortie de l'avion. Avec notre accueil personnalisé, vous n'aurez pas à attendre et pourrez partir directement rejoindre votre lieu de résidence ou explorer les alentours.</p>
+<p class="paddingp pbottom10">
+Nous pouvons vous fournir un siège bébé, un réhausseur ou encore un GPS si besoin. Notre agence étant ouverte sept jours sur sept, y compris les jours fériés, tout est mis en œuvre pour que vous passiez un séjour inoubliable sur l'île de la Réunion.</p>
+<p class="paddingp pbottom20">
+D’un rapport qualité/prix très attractif, notre offre de location de voiture aura de quoi vous séduire !</p>
+<div class="fblanc avisbas">
+<div id="bavis" vocab="http://schema.org/" typeof="Corporation">
+<h4>Avis de nos clients</h4>
+<ul class="ulvote ulrtl">
+<li class="fu"></li>
+<li class="fu"></li>
+<li class="fu"></li>
+<li class="fu"></li>
+<li class="fu"></li>
+</ul>
+<div class="clear"></div>
+<span class="none" property="name">GP Location</span>
+<p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="../www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+</div>
+<div id="avisaccueil">
+<p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
+<p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
+</div>    
+</div>
+<img src="template/gp-location/img/voiture-accueil.png" width="300" height="198" class="right mleft20 restabr10 imgresp" alt="Location Dacia Duster Réunion"/>
+<h3>Des visites incontournables sur l'île de la Réunion</h3>
+<p class="paddingp mbottom10">Cette île volcanique, située en plein cœur de l'océan Indien, vous offrira des expériences inoubliables. Comme la plongée sous-marine, au milieu des différentes espèces aquatiques telles que les dauphins, les baleines, les tortues marines ou encore les requins. Avec votre voiture de location, vous pourrez rejoindre le point de départ de nombreuses randonnées qui cheminent jusqu'en haut des différents pitons, dont le fameux Piton de la Fournaise, toujours en activité volcanique. Grâce à notre assistance, disponible sept jours sur sept et 24 h/24, vous n’aurez pas à vous soucier d’un quelconque ennui mécanique.</p>
+<p class="paddingp mbottom20">En voiture, vous pourrez rallier le sud de l’île pour rejoindre la ville de Saint-Pierre et profiter de son front de mer très animé. Ne manquez pas non plus la visite du Cirque de Mafate ou encore celui de Cilaos, qui vous offriront une vue grandiose et panoramique de l’île. L’île de la Réunion ayant une superficie de 2 500 km² environ, de nombreux endroits paradisiaques sont à découvrir. Les plages de sable fin aux eaux turquoise n’attendent que vous. C'est pourquoi notre gamme de véhicules de location est aussi variée, pour vous offrir un séjour unique et sécurisant.</p>
+</div>
+</div>
+<div class="clear"></div>    
