@@ -9,7 +9,7 @@
 
 
 
-<div class="demandeavis">
+                <div class="demandeavis">
 <div class="largeur">
 <h1>Vous voulez contacter GP Location ?</h1>
 <div class="grid_465">
@@ -18,53 +18,44 @@
 <p class="paddingp">Pour nous contacter, merci de remplir le formulaire ci-dessous.</p>
 
 
-<%= form_with(model: contact, local: true) do |form| %>
-                <% if contact.errors.any? %>
-                  <div id="error_explanation">
-                    <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-                    <ul>
-                      <% contact.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                    </ul>
+                
+                <%= form_with(model: contact, local: true , id:"formsoumresa") do |form| %>
+                  <% if contact.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+  
+                      <ul>
+                        <% contact.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                
+                <fieldset>
+                  <label for="nom"><span class="label">Nom*</span>
+                    <%= form.text_field :nom %>
+                  </label>
+                  <label for="email"><span class="label">E-mail*</span>
+                    <%= form.text_field :email %>
+                  </label>
+                  <label for="tel"><span class="label">Téléphone*</span>
+                    <%= form.text_field :telephone %>
+                  </label>
+                  <label for="message"><span class="label">Message*</span>
+                    <%= form.text_area(:message, :size => "5x4",style:"margin-bottom:20px;width:361px;") %>
+                  </label>
+                  <div id="captcha" class="g-recaptcha" data-sitekey="6LflL0UUAAAAAElAC62tabhBg8_94yeF_O7NaJbS "></div>
+                  
+                  <%= form.submit :valider, class: 'lien lienconnec' %>
+                  <br/><p class="obliconnec">* Champs obligatoires</p>
+                  </fieldset>
+                  <% end %>
+                  </form>
+                  <div class="clear"></div>
                   </div>
-                <% end %>
-
-            <form >
-              <fieldset>
-                <label for="nom"><span class="label">Nom*</span>
+                  </div>
                 
-               
-                  <%= form.text_field :nom %>
-                </label>
-
-        
-                <label for="email"><span class="label">E-mail*</span>
-                  <%= form.text_field :email %>
-                </label>
-
-                
-                <label for="tel"><span class="label">Téléphone*</span>
-                  <%= form.text_field :telephone %>
-                </label>
-
-                
-                <label for="message"><span class="label">Message*</span>
-                  <%= form.text_area(:message, :size => "5x4",style:"margin-bottom:20px;width:361px;") %>
-                </label>
-                <div id="captcha" class="g-recaptcha" data-sitekey="6LflL0UUAAAAAElAC62tabhBg8_94yeF_O7NaJbS ">
-                </div>
-
-                
-                <%= form.button :valider, class: 'lien lienconnec' %>
-                <br/><p class="obliconnec">* Champs obligatoires</p>
-                <% end %>
-                </fieldset>
-                </form>
-                <div class="clear"></div>
-                </div>
-                </div>
 
 
 
