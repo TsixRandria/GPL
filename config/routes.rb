@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   resources :contacts
     get '/contact' => 'contacts#new', :as => 'contacter'
-
-
+  
   devise_for :admins, path: '/secret-gpl-page/admin', :skip => [:registrations],
     controllers: { 
     sessions: "admins/sessions"
