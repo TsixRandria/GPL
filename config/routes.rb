@@ -5,9 +5,6 @@ Rails.application.routes.draw do
     get '/contact' => 'contacts#new', :as => 'contacter'
 
 
-
-  devise_for :admins
-
   devise_for :admins, path: '/secret-gpl-page/admin', :skip => [:registrations],
     controllers: { 
     sessions: "admins/sessions"
