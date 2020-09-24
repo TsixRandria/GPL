@@ -1,0 +1,688 @@
+
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div id="resa">
+<video autoplay loop>
+<source type="video/mp4" src="/template/gp-location/img/reunion.mp4">
+<source type="video/webm" src="/template/gp-location/img/reunion.webm">
+</video>
+<div class="largeur"><h1>Location de voiture Aéroport de la Réunion</h1></div>
+<script type="text/javascript">		
+//<![CDATA[
+var tab_decli_combinee = new Array();
+tab_decli_combinee['45'] = 2;
+tab_decli_combinee['47'] = 2;
+tab_decli_combinee['48'] = 2;
+tab_decli_combinee['49'] = 2;
+tab_decli_combinee['51'] = 2;
+tab_decli_combinee['52'] = 2;
+tab_decli_combinee['60'] = 2;
+tab_decli_combinee['61'] = 2;
+tab_decli_combinee['62'] = 2;
+tab_decli_combinee['63'] = 2;
+$(function(){
+// 1 = Lundi, 2 = Mardi, 3 = Mercredi, 4 = Jeudi,
+// 5 = Vendredi, 6 = Samedi, 0 = Dimanche
+var unavalaibleDates = ["2018-12-25","2019-01-01","2019-11-01","2020-12-25"];
+var avalaibleDates = [];
+var unavalaibleDays = [];
+var nbJoursMax = [90]; // nb_jours_max_forfait
+var opt_jour_sup = [0];
+var dejacli = 0;
+function dateObjAddDays(date,nbDays)
+{
+return new Date(date.setTime( date.getTime() + nbDays * 86400000 ));
+}
+function setDateRetour(date_d)
+{
+var date_f = getDateObj($('#date_f').val());
+var new_date_f = false;
+if(1 == compareDates(date_d,date_f))
+{ 
+date_f = dateObjAddDays(date_d,6);
+while(!new_date_f)
+{
+date_f = dateObjAddDays(date_f,1);
+var m = date_f.getMonth(), d = date_f.getDate(), y = date_f.getFullYear();
+if(d < 10){d = "0"+d;}
+if(m+1 < 10){m = "0"+(m+1);}
+else{m = (m+1);}
+var day = date_f.getDay();
+if($.inArray(y + '-' + m + '-' + d,unavalaibleDates) != -1 || ($.inArray(day, unavalaibleDays) != -1 && $.inArray(y + '-' + m + '-' + d, avalaibleDates) == -1)){
+// Ne rien faire, la date n'est pas une date valide
+}
+else
+{
+new_date_f = true;
+$('#date_f').datepicker("setDate", date_f );
+}
+}
+}
+}
+function setDateDepart(date_f)
+{
+var date_d = getDateObj($('#date_d').val());
+var new_date_d = false;
+var today = new Date();
+if(1 == compareDates(date_d,date_f))
+{ 
+date_d = dateObjAddDays(date_f,-6);
+if(1 == compareDates(today,date_d))
+{ 
+date_d = dateObjAddDays(today,-1);
+while(!new_date_d){
+date_d = dateObjAddDays(date_d,1);
+var m = date_d.getMonth(), d = date_d.getDate(), y = date_d.getFullYear();
+if(d < 10){d = "0"+d;}
+if(m+1 < 10){m = "0"+(m+1);}
+else{m = (m+1);}
+var day = date_d.getDay();
+if($.inArray(y + '-' + m + '-' + d,unavalaibleDates) != -1 || ($.inArray(day, unavalaibleDays) != -1 && $.inArray(y + '-' + m + '-' + d, avalaibleDates) == -1)){
+// Ne rien faire, la date n'est pas une date valide
+}
+else{
+new_date_d = true;
+$('#date_d').datepicker("setDate", date_d );
+}
+}
+}
+else{
+while(!new_date_d){
+date_d = dateObjAddDays(date_d,-1);
+var m = date_d.getMonth(), d = date_d.getDate(), y = date_d.getFullYear();
+if(d < 10){d = "0"+d;}
+if(m+1 < 10){m = "0"+(m+1);}
+else{m = (m+1);}
+var day = date_d.getDay();
+if($.inArray(y + '-' + m + '-' + d,unavalaibleDates) != -1 || ($.inArray(day, unavalaibleDays) != -1 && $.inArray(y + '-' + m + '-' + d, avalaibleDates) == -1)){
+// Ne rien faire, la date n'est pas une date valide
+}
+else{
+new_date_d = true;
+$('#date_d').datepicker("setDate", date_d );
+}
+}
+}
+}
+}
+// Attention !!!!!!! beaucoup de données à rendre dynamique !!!!!!!
+function checkDates(){			
+var _return = false;
+var lieu_d = $('#lieu_d').val();
+var lieu_f = $('#lieu_f').val();
+var l_retour_checked = $('#l_retour').is(':checked');
+var date_d = $('#date_d').val();
+var date_f = $('#date_f').val();
+var id_categorie = $('input[type=radio][name=id_categorie]:checked').attr('value');
+var id_produit = $('input[type=radio][name=id_produit]:checked').attr('value');
+var periode = "ms";
+var formule = $('input[type=radio][name=formule]:checked').attr('value');
+var today = new Date();
+var m = today.getMonth(), d = today.getDate(), y = today.getFullYear();	
+if(d < 10){d = "0"+d;}
+if(m+1 < 10){m = "0"+(m+1);}
+else{m = (m+1);}			
+var day = getDateObj(date_d).getDay();					
+var now_str = y + '-' + m + '-' + d;
+var p1 = 'Merci de bien vouloir s\351lectionner une date de d\351part de location.';
+var p2 = 'Pour louer aujourd\'hui, merci de contacter directement Cargo Location Perpignan au 04 68 35 86 35.';
+var p3 = 'Merci de bien vouloir s\351lectionner une date de fin de location.';
+var p4 = 'Vous ne pouvez louer plus de '+ nbJoursMax + ' jours, veuillez saisir \340 nouveau vos dates de location.' + "\n" + 'Contactez votre agence pour toute dur\351e de location sup\351rieure.';
+var p5 = 'Veuillez s\351lectionner une date de d\351part de location inf\351rieure \340 celle de fin de location.';
+var p6 = 'Vous ne pouvez pas louer ce véhicule pour moins de |x| jours, veuillez saisir \340 nouveau vos dates de location ou choisir un autre véhicule.';
+//var p7 = 'Vous ne pouvez pas louer un camping-car pour moins de 7 jours, veuillez saisir \340 nouveau vos dates de location.';
+var p8 = 'Veuillez nous excuser, l\'offre "Formule + prix au KM" n\'est pas disponible pour un week-end seulement.' + "\n" + 'Vous pouvez soit cocher l\'option "Forfait", soit augmenter la durée de votre location';
+var p9 = 'Merci de bien vouloir s\351lectionner un lieu de d\351part.';
+var p10 = 'Merci de bien vouloir s\351lectionner un lieu de retour.';
+if(parseInt(lieu_d) == 0){ alert( p9 ) }
+else if(parseInt(lieu_f) == 0 && !l_retour_checked){ alert( p10 ) }
+else if(date_d == ''){ alert( p1 ) }
+else if(date_d == now_str){ alert( p2 ) }
+else if(date_f == ''){ alert( p3 ) }				
+else{			
+var nb_jours = nb_jour(date_d.split('/'),date_f.split('/'));
+if(nb_jours == 0) nb_jours = 1;
+if(nb_jours <= 3 && day == 5 && formule == '0'){ alert( p8 ) }
+else if((nb_jours > nbJoursMax) && !opt_jour_sup){ alert( p4 ) }
+else{					
+if(1 == compareDates(getDateObj(date_d),getDateObj(date_f))){ alert( p5 ) }
+else{ _return = true; }
+}			
+}
+// Tableau contenant le nombre de jours minimum pour chaque période et chaque produit
+var tab_duree_min = new Array();
+tab_duree_min[45] = new Array('bs','ms','hs');
+tab_duree_min[45]['bs'] = 5;
+tab_duree_min[45]['ms'] = 5;
+tab_duree_min[45]['hs'] = 5;
+tab_duree_min[48] = new Array('bs','ms','hs');
+tab_duree_min[48]['bs'] = 3;
+tab_duree_min[48]['ms'] = 3;
+tab_duree_min[48]['hs'] = 2;
+tab_duree_min[47] = new Array('bs','ms','hs');
+tab_duree_min[47]['bs'] = 5;
+tab_duree_min[47]['ms'] = 5;
+tab_duree_min[47]['hs'] = 5;
+tab_duree_min[46] = new Array('bs','ms','hs');
+tab_duree_min[46]['bs'] = 5;
+tab_duree_min[46]['ms'] = 5;
+tab_duree_min[46]['hs'] = 5;
+tab_duree_min[50] = new Array('bs','ms','hs');
+tab_duree_min[50]['bs'] = 0;
+tab_duree_min[50]['ms'] = 0;
+tab_duree_min[50]['hs'] = 0;
+tab_duree_min[49] = new Array('bs','ms','hs');
+tab_duree_min[49]['bs'] = 0;
+tab_duree_min[49]['ms'] = 0;
+tab_duree_min[49]['hs'] = 0;
+tab_duree_min[51] = new Array('bs','ms','hs');
+tab_duree_min[51]['bs'] = 0;
+tab_duree_min[51]['ms'] = 0;
+tab_duree_min[51]['hs'] = 0;
+tab_duree_min[52] = new Array('bs','ms','hs');
+tab_duree_min[52]['bs'] = 0;
+tab_duree_min[52]['ms'] = 0;
+tab_duree_min[52]['hs'] = 0;
+tab_duree_min[53] = new Array('bs','ms','hs');
+tab_duree_min[53]['bs'] = 5;
+tab_duree_min[53]['ms'] = 5;
+tab_duree_min[53]['hs'] = 5;
+tab_duree_min[54] = new Array('bs','ms','hs');
+tab_duree_min[54]['bs'] = 0;
+tab_duree_min[54]['ms'] = 0;
+tab_duree_min[54]['hs'] = 0;
+tab_duree_min[55] = new Array('bs','ms','hs');
+tab_duree_min[55]['bs'] = 0;
+tab_duree_min[55]['ms'] = 0;
+tab_duree_min[55]['hs'] = 0;
+tab_duree_min[57] = new Array('bs','ms','hs');
+tab_duree_min[57]['bs'] = 1;
+tab_duree_min[57]['ms'] = 1;
+tab_duree_min[57]['hs'] = 1;
+tab_duree_min[58] = new Array('bs','ms','hs');
+tab_duree_min[58]['bs'] = 0;
+tab_duree_min[58]['ms'] = 0;
+tab_duree_min[58]['hs'] = 0;
+tab_duree_min[59] = new Array('bs','ms','hs');
+tab_duree_min[59]['bs'] = 5;
+tab_duree_min[59]['ms'] = 5;
+tab_duree_min[59]['hs'] = 5;
+tab_duree_min[60] = new Array('bs','ms','hs');
+tab_duree_min[60]['bs'] = 5;
+tab_duree_min[60]['ms'] = 5;
+tab_duree_min[60]['hs'] = 3;
+tab_duree_min[61] = new Array('bs','ms','hs');
+tab_duree_min[61]['bs'] = 3;
+tab_duree_min[61]['ms'] = 3;
+tab_duree_min[61]['hs'] = 3;
+tab_duree_min[62] = new Array('bs','ms','hs');
+tab_duree_min[62]['bs'] = 0;
+tab_duree_min[62]['ms'] = 0;
+tab_duree_min[62]['hs'] = 0;
+tab_duree_min[63] = new Array('bs','ms','hs');
+tab_duree_min[63]['bs'] = 3;
+tab_duree_min[63]['ms'] = 3;
+tab_duree_min[63]['hs'] = 3;
+// Laisser la possibilité à l'internaute de valider quand même sa demande pour afficher les véhicules correspondant à la période qu'il a sélectionné.			
+// if(periode == 'bs' && nb_jours < tab_duree_min[id_produit]['bs']){alert(p6.replace('|x|',tab_duree_min[id_produit]['bs']));_return = false;}
+// else if(periode == 'ms' && nb_jours < tab_duree_min[id_produit]['ms']){alert(p6.replace('|x|',tab_duree_min[id_produit]['ms']));_return = false;}
+// else if(periode == 'hs' && nb_jours < tab_duree_min[id_produit]['hs']){alert(p6.replace('|x|',tab_duree_min[id_produit]['hs']));_return = false;}
+return _return;
+}	
+function disableUnavailableDays(date) {
+var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();				
+if(d < 10){d = "0"+d;}
+if(m+1 < 10){m = "0"+(m+1);}
+else{m = (m+1);}			
+var day = date.getDay();
+if($.inArray(y + '-' + m + '-' + d,unavalaibleDates) != -1 || ($.inArray(day, unavalaibleDays) != -1 && $.inArray(y + '-' + m + '-' + d, avalaibleDates) == -1)){		
+return [false];
+}				
+return [true];
+}
+function formresaSubmit(){			
+// "_trackEvent" is the pageview event, 
+if(!isAdmin()) _gaq.push(['_trackPageview', '/tarifs.html']);
+$('.mess_confirm').remove();
+if(checkDates()){
+if(0){
+removeAllEvtsListenerFromClickHeat();
+}			
+$('#confirm_vehicule').hide('fast');						
+$('#confirm_vehicule').empty();
+$('#ajax-loader').show();
+if(!isAdmin()) $.scrollTo('#reduc',400);
+var url = (isAdmin() ? "../" : "" ) + "module-resa/module_resa.inc.php";
+var params = "?ajax=1&action=formresasubmit&" + jQuery("#formresa").serialize();
+jQuery.get( url + params, function(data){
+$('#ajax-loader').hide();
+$('#confirm_vehicule').html(data);
+$('#confirm_vehicule').fadeIn();
+$('.confirm-prod').each(function(){
+$(this).fadeIn('fast');
+});
+init_offre_listing();
+});
+}
+return false;
+}
+$('#date_d').datepicker({
+dateFormat: 'dd/mm/yy',
+beforeShowDay: disableUnavailableDays,
+minDate: '0',
+onClose: function(selectedDate){
+var date = new Date(Date.parse($(this).datepicker('getDate')));
+var numDay = (date.getDay() == 0) ? 7 : date.getDay();
+if(!isAdmin())
+{
+setDateRetour(date);
+// getHours('d',numDay);
+}
+verifConfirmresa();
+},
+firstDay: 1
+});
+$('#date_f').datepicker({
+dateFormat: 'dd/mm/yy',
+beforeShowDay: disableUnavailableDays,
+minDate: '0',
+onClose: function(){
+var date = new Date(Date.parse($(this).datepicker('getDate')));
+var numDay = (date.getDay() == 0) ? 7 : date.getDay();
+if(!isAdmin()){
+setDateDepart(date);
+// getHours('f',numDay);
+}
+verifConfirmresa();
+},
+firstDay: 1
+});
+function ddSetValue(id,value){
+var dd = $('#' + id).msDropdown().data("dd");
+dd.destroy();
+$('#' + id).val(value);
+$('#' + id).msDropdown();
+}
+$(document).ready(function()
+{
+id_categorie = 1;
+if(isAdmin())
+{
+$('#id_categorie').change(function()
+{
+getListProduits($("#id_categorie option:selected").val());
+verifConfirmresa();
+});
+}
+initCyclePlugin(0);
+if(isAdmin())
+{
+$("#id_categorie option:selected").attr("selected",'');
+$("#id_categorie option[value='"+ id_categorie +"']").attr("selected","selected");
+$('#id_categorie').change();
+}
+$("#lieu_d").change(function(){
+/**/
+/*
+var url = (isAdmin() ? "../" : "" ) + "module-resa/module_resa.inc.php";
+var params = "?ajax=1&action=formresasubmit&" + jQuery("#formresa").serialize();
+jQuery.get( url + params, function(data){
+$('#ajax-loader').hide();
+$('#confirm_vehicule').html(data);
+$('#confirm_vehicule').fadeIn();
+$('.confirm-prod').each(function(){
+$(this).fadeIn('fast');
+});
+init_offre_listing();
+initLinkMap();
+});*/
+/**/
+if($('#l_retour').is(':checked')){
+ddSetValue('lieu_f',$(this).val());
+}
+});
+$("#nb_km").keyup(function(){
+verifConfirmresa();
+});
+$('#produit').click(function(){
+verifConfirmresa();
+});
+$('#formresa').submit(function(){
+return formresaSubmit();
+});	
+$('.alisting').click(function(){
+if($('.confirm-prod').length){
+if($('#entete_resultats').length){
+selectListing($(this).attr('id').replace('alisting',''),1);
+}
+else{
+$('#confirm-vehicule').empty();
+$('#resa').show('fast');
+selectListing($(this).attr('id').replace('alisting',''));
+}
+}
+else{
+selectListing($(this).attr('id').replace('alisting',''));
+}
+return false;
+});
+$('.fancy').fancybox({
+'width'				: 800,
+'height'			: 480,
+'autoScale'			: false,
+'transitionIn'		: 'none',
+'transitionOut'		: 'none',
+'type'				: 'iframe',
+'overlayColor'		: '#000'
+});
+verifConfirmresa();
+$("#l_retour").click(function()
+{
+if(!$(this).is(":checked"))
+{
+$('#date-retour').css('display','block');
+ddSetValue('lieu_f','0');
+}
+else{
+$('#date-retour').css('display','none');
+ddSetValue('lieu_f',$('#lieu_d').val());
+}
+});
+if($("#lieu_f").val() == '0')
+{
+ddSetValue('lieu_f',$('#lieu_d').val());
+}
+// Arrivée des comparateurs
+if(0){
+$('#confirmresa').click();
+}
+})
+});
+if(0){
+clickHeatSite = 'resas';
+clickHeatGroup = 'group1';
+//clickHeatServer = 'http://s318850998.onlinehome.fr/resas/lib/clickheat/clickempty.html';
+clickHeatServer = 'http://s318850998.onlinehome.fr/resas/lib/clickheat/click.php';
+initClickHeat();
+}	
+//]]>
+</script><input type="hidden" name="fond" value="#FOND" />
+<img src="/template/gp-location/img/loading-spokes.svg" width="80" height="80" alt="Location de véhicules" class="none"/>
+<div id="fond-resa"></div>
+
+<div class="largeur">
+<form id="formresa" class="lang1" action="" method="post">
+        <div class="formtab">
+        <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
+        <div id="gaucheformulaire">
+            <fieldset class="loueur">
+                <label for="lieu_d" id="cocheresa">Lieu de départ</label>
+                    <select id="lieu_d" name="lieu_d">
+                    <option value="16" selected="selected"   >Aéroport de la Réunion
+                    </option><option value="17"    >Sainte-Marie
+                    </option>
+                    </select>
+                    <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
+                    <label for="l_retour" id="resacoche">&nbsp;</label>
+                    <input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
+                    <span id="ecartcoche">Retour au même endroit</span>
+            </fieldset>
+            <fieldset id="date-retour" style="display:none">
+                    <label for="lieu_f">Lieu de retour</label>
+                    <select id="lieu_f" name="lieu_f">
+                    <option value="16" selected="selected"   >Aéroport de la Réunion</option>
+                    <option value="17"    >Sainte-Marie</option>
+                    </select>
+                    <input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
+                    <div class="pbottom10"></div>
+            </fieldset>
+        </div>
+        <div class="milieuformulaire">
+            <fieldset>
+                <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
+                <label for="date_d">Départ</label>
+                <input id="date_d" name="date_d" readonly="readonly" type="text" value="29/08/2020"/>
+            </fieldset>
+        </div>
+        <div class="droiteformulaire">
+            <fieldset>
+                <label id="lab_heure_d" for="heure_d">&nbsp;</label>
+                <select name="heure_d" id="heure_d">				
+                    <option value="05:30" >05:30</option>
+                    <option value="06:00" >06:00</option>
+                    <option value="06:30" >06:30</option>
+                    <option value="07:00" >07:00</option>
+                    <option value="07:30" >07:30</option>
+                    <option value="08:00" >08:00</option>
+                    <option value="08:30" >08:30</option>
+                    <option value="09:00" >09:00</option>
+                    <option value="09:30" >09:30</option>
+                    <option value="10:00" selected="selected">10:00</option>
+                    <option value="10:30" >10:30</option>
+                    <option value="11:00" >11:00</option>
+                    <option value="11:30" >11:30</option>
+                    <option value="12:00" >12:00</option>
+                    <option value="12:30" >12:30</option>
+                    <option value="13:00" >13:00</option>
+                    <option value="13:30" >13:30</option>
+                    <option value="14:00" >14:00</option>
+                    <option value="14:30" >14:30</option>
+                    <option value="15:00" >15:00</option>
+                    <option value="15:30" >15:30</option>
+                    <option value="16:00" >16:00</option>
+                    <option value="16:30" >16:30</option>
+                    <option value="17:00" >17:00</option>
+                    <option value="17:30" >17:30</option>
+                    <option value="18:00" >18:00</option>
+                    <option value="18:30" >18:30</option>
+                    <option value="19:00" >19:00</option>
+                    <option value="19:30" >19:30</option>
+                    <option value="20:00" >20:00</option>
+                    <option value="20:30" >20:30</option>
+                    <option value="21:00" >21:00</option>
+                    <option value="21:30" >21:30</option>
+                    <option value="22:00" >22:00</option>
+                    <option value="22:30" >22:30</option>
+                    <option value="23:00" >23:00</option>
+                </select>
+            </fieldset>
+    </div>
+    <div class="milieuformulaire retourtab">
+            <fieldset>
+                <label for="date_f">Retour</label>
+                <input id="date_f" name="date_f" readonly="readonly" type="text" value="07/09/2020"/>
+            </fieldset>
+    </div>
+    <div class="droiteformulaire heure_ftab">
+            <fieldset>
+            <label id="lab_heure_f" for="heure_f">&nbsp;</label>
+            <select name="heure_f" id="heure_f">				
+                    <option value="05:30" >05:30</option>
+                    <option value="06:00" >06:00</option>
+                    <option value="06:30" >06:30</option>
+                    <option value="07:00" >07:00</option>
+                    <option value="07:30" >07:30</option>
+                    <option value="08:00" >08:00</option>
+                    <option value="08:30" >08:30</option>
+                    <option value="09:00" >09:00</option>
+                    <option value="09:30" >09:30</option>
+                    <option value="10:00" selected="selected">10:00</option>
+                    <option value="10:30" >10:30</option>
+                    <option value="11:00" >11:00</option>
+                    <option value="11:30" >11:30</option>
+                    <option value="12:00" >12:00</option>
+                    <option value="12:30" >12:30</option>
+                    <option value="13:00" >13:00</option>
+                    <option value="13:30" >13:30</option>
+                    <option value="14:00" >14:00</option>
+                    <option value="14:30" >14:30</option>
+                    <option value="15:00" >15:00</option>
+                    <option value="15:30" >15:30</option>
+                    <option value="16:00" >16:00</option>
+                    <option value="16:30" >16:30</option>
+                    <option value="17:00" >17:00</option>
+                    <option value="17:30" >17:30</option>
+                    <option value="18:00" >18:00</option>
+                    <option value="18:30" >18:30</option>
+                    <option value="19:00" >19:00</option>
+                    <option value="19:30" >19:30</option>
+                    <option value="20:00" >20:00</option>
+                    <option value="20:30" >20:30</option>
+                    <option value="21:00" >21:00</option>
+                    <option value="21:30" >21:30</option>
+                    <option value="22:00" >22:00</option>
+                    <option value="22:30" >22:30</option>
+                    <option value="23:00" >23:00</option>
+            </select>
+            </label>
+            </fieldset>
+    </div>
+    <fieldset>
+            <div id="list_produits" style="display:none">
+                <div id="produits">
+                    <div id="select_produit_60" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit60" value="60"  />
+                    <span class="resa-vehititre">Catégorie A</span>		
+                    </div>
+                    <div id="select_produit_45" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit45" value="45"  />
+                    <span class="resa-vehititre">Catégorie B</span>		
+                    </div>
+                    <div id="select_produit_61" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit61" value="61"  />
+                    <span class="resa-vehititre">Catégorie C+</span>		
+                    </div>
+                    <div id="select_produit_47" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit47" value="47"  />
+                    <span class="resa-vehititre">Catégorie D Diesel</span>		
+                    </div>
+                    <div id="select_produit_48" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit48" value="48"  />
+                    <span class="resa-vehititre">Catégorie E Diesel</span>		
+                    </div>
+                    <div id="select_produit_63" class="el_prod">
+                    <input type="radio" style="display:none" name="id_produit" id="produit63" value="63"  />
+                    <span class="resa-vehititre">Catégorie E Diesel Auto</span>		
+                    </div>
+                </div>
+                <div id="nav" class="nav">
+                    <p><span id="resa-vehicule">Véhicule :</span> <a id="prev2" href="#"></a> <a id="next2" href="#"></a></p>
+                </div>
+            </div>
+    </fieldset>
+    <fieldset class="mtop5" style="display:none">
+                <label for="nb_km">
+                    <input id="nb_km" type="text" name="nb_km" value="100" onfocus="if(this.value=='100') this.value = '';" onblur="if(this.value=='') this.value = '100';" class="lcd"/>
+                </label>
+    </fieldset>
+    <fieldset>
+                <label class="grid_6 none" id="resavoiture">
+                    <input type="radio" name="id_categorie" value="1" id="categorie_0" checked="checked" style="display:none" /><span>Voiture</span>
+                </label>
+                <label class="grid_6 none" id="resautilitaire" style="">
+                    <input type="radio" name="id_categorie" value="2" id="categorie_1" /><span>Utilitaire</span>
+                </label>  
+    </fieldset>
+    <fieldset>
+                <label for="forfait" id="lab_forfait" style="display:none">
+                    <input id="forfait" type="radio" name="formule" value="1" checked="checked"/>
+                </label>
+                <label for="tous" id="lab_tous" style="display:none">
+                    <input id="tous" type="checkbox"  name="tous" checked="checked" value="1"/> 
+                </label>
+                <label for="confirmresa">
+                    <button type="submit" name="confirmresa" disabled="disabled" id="confirmresa" class="tada">Louer !</button>
+                </label>
+    </fieldset>
+
+                <div class="clear"></div>
+    </div>
+</form>
+</div>
+    <p class="mess_confirm" style="display:none">
+    Nous vous remercions pour votre réservation, celle-ci a bien été prise en compte.<br />
+    </p>
+</div>
+        <div id="entour_infos">
+        <div id="ajax-loader">
+        </div>
+        <div id="confirm_vehicule">	
+        </div>
+        </div>
+
+
+
+
+        <div class="hackvid">
+        <img src="/template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
+        <h2>Besoin d'une voiture de location à l'aéroport de la Réunion Roland-Garros ?</h2>
+        <div class="largeur mbottom0">
+        <img src="/template/gp-location/img/voiture-accueil.png" width="300" height="198" class="left mright20  restabl10pr imgresp" alt="Location voiture à l'aéroport de la Réunion Roland-Garros"/>
+        <p class="paddingp mbottom10">Pour louer une voiture à l'aéroport de la Réunion Roland-Garros, rien de plus simple ! <b>Réservez votre voiture en ligne et pas cher avec GP Location.</b></p>
+        <div class="droiteaccueil">
+        <div class="fblanc mbottom20">
+        <div class="grid_6 paveaccueil">
+        <span class="clavier"></span>
+        <b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
+        <p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture de location au meilleur prix sur notre site Internet<strong>.</strong></p>
+        </div>
+        <div class="grid_6 paveaccueil">
+        <span class="imprimer"></span>
+        <b>2</b><h4>Confirmation de<br/>
+        votre location</h4>
+        <p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
+        </div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="largeur">
+<h2>Votre voiture de location à l'aéroport de la Réunion Roland-Garros !</h2>
+<div id="avantages">
+<h4>Les avantages GP Location</h4>
+<ul>
+<li>Prise en charge à l'aéroport ou au port avec votre véhicule</li>
+<li>Kilométrage illimité, assurances incluses</li>
+<li>Assistance 7j/7, 24h/24</li>
+<li>Large choix de véhicules récents</li>
+<li>Ouvert 7j/7 y compris jours fériés</li>
+</ul>
+</div>
+        <div class="paddingp">
+            <p>L’aéroport international Roland Garros est situé sur la commune de Sainte-Marie, au nord de l’île de la Réunion. Il a été nommé ainsi en l’honneur du célèbre aviateur, né à Saint-Denis, tout près d'ici.</p>
+            <p><strong>Dès votre arrivée à l'aéroport, notre agence de location de voiture, GP location, vous prend en charge.</strong></p>
+            <p>Étant <strong>ouverts sept jours sur sept, y compris les jours fériés</strong>, nous serons disponibles pour vous accueillir à tout moment de la journée, quelle que soit l'heure de votre arrivée.</p>
+            <p><strong>Nous vous attendrons dès votre sortie de l'avion, avec votre nom inscrit sur une pancarte.</strong> Nous vous conduirons à votre véhicule de location et pourrons vous remettre les clés rapidement.</p>
+            <p>Que vous veniez sur l’île de la Réunion pour vos vacances ou pour un voyage d'affaires, vous trouverez un véhicule adapté à vos besoins au sein de notre flotte automobile.</p>
+            <p><strong>Nos tarifs attractifs comprennent l'assistance sept jours sur sept, ainsi que le kilométrage illimité et une assurance tous risques.</strong> Tout est donc mis en œuvre pour que vous passiez un séjour agréable sur cette île paradisiaque qu’est la Réunion.</p>
+            <h2>Que visiter à la Réunion depuis l'aéroport Roland Garros ?</h2>
+            <p>À bord de votre voiture de location, partez explorer l’île de la Réunion directement depuis l'aéroport Roland Garros. Le code de la route étant le même qu'en métropole, vous ne devriez pas avoir de problème lié à la conduite.</p>
+            <p>Non loin de là se trouve la ville de Saint-Denis, labellisée « Ville d'Art et d'Histoire ». Plus de 50 monuments historiques, dont des maisons créoles et des bâtiments coloniaux, se succèdent à partir du rond-point de la Victoire et tout le long de la rue de Paris. Ne manquez pas la visite du jardin de l'État, qui abrite le Museum d'histoire naturelle, où vous découvrirez de nombreuses plantes exotiques.</p>
+            <p>Avec le kilométrage illimité inclus dans notre offre, vous pourrez vous rendre plus loin et rejoindre les plus belles plages de l'île de la Réunion. Votre voiture de location vous facilitant le déplacement, n'hésitez pas à vous rendre à la station balnéaire de Saint-Gilles-les-Bains. Vous pourrez y visiter le seul aquarium de l’île de la Réunion, le musée de Villèle ou encore le jardin d'Éden.</p>
+        </div>
+<div class="fblanc avisbas">
+        <div id="bavis" vocab="http://schema.org/" typeof="Corporation">
+             <h4>Avis de nos clients</h4>
+                <ul class="ulvote ulrtl">
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                <li class="fu"></li>
+                </ul>
+             <div class="clear"></div>
+            <span class="none" property="name">GP Location</span>
+            <p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="https://www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+        </div>
+    <div id="avisaccueil">
+        <p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
+        <p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
+    </div>    
+</div>
+        <img src="/client/cache/contenu/956_______aeroport-roland-garros_114.jpg" alt="" title="" border="0" class="imgpretrait" />
+</div>
+</div>
+<div class="clear"></div> 

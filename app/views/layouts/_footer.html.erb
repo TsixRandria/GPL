@@ -8,7 +8,7 @@
 <ul>
     <li><a href=" <%= voitures_path %> ">Nos voitures</a></li>
     <li><a href=" <%= conditions_path %>">Conditions générales de location</a></li>
-    <li><a href=" ">Espace client</a></li>
+    <li><a href=" <%= new_client_registration_path %> ">Espace client</a></li>
 </ul>
 </div>
 <div class="grid_3 vcard">
@@ -20,14 +20,15 @@
 <p><span class="postal-code">97438</span> <span class="locality">Sainte Marie</span></p>
 </div>
 <ul>
-<li><a href="<%= contact_path%>">Contact</a></li>
+<li><a href="<%=contacter_path%>">Contact</a></li>
 </ul>
 </div>
 <div class="grid_3">
 <h5>Prise en charge</h5>
 <ul>
-<li><a href=" ">Aéroport de la Réunion Roland-Garros</a></li>
-<li><a href=" ">Sainte-Marie</a></li>
+
+<li><a href="<%= aeroport_path %>">Aéroport de la Réunion Roland-Garros</a></li>
+<li><a href="<%= port_path%>">Sainte-Marie</a></li>
 <li><a href="<%= mentions_path%>">Mentions légales</a></li>
 </ul>
 </div>
