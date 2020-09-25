@@ -55,12 +55,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'table_print'
-gem 'bootstrap'
 gem 'devise'
 gem 'gmaps4rails'
 gem 'faker'
 gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 
 
 #redimensionner une image

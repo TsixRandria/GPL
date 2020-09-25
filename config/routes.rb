@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'article_saint_marie/index'
   get 'article_aeroport/index'
   resources :locations
+  root to:'locations#new'
   get 'port/port'
 
   get 'aeroport/aeroport'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
    devise_for :clients
 
   
-root to:'homepage#index'
+# root to:'homepage#index'
   get '/conditions-generales-de-location' => 'homepage#conditions', :as => 'conditions'
   get '/mentions-legales' => 'homepage#mentions', :as => 'mentions'
 

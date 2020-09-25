@@ -8,6 +8,7 @@
 
     <%= form.select :lieu_de_depart, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, "class"=>'enabled_msddli_selected' %>
 
+
     <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
     <label for="l_retour" id="resacoche">&nbsp;</label>
     <input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
@@ -22,6 +23,11 @@
     <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
     <label for="date_d">Départ</label>
     <%= form.datetime_select :depart, order: [:day, :month, :year], "data-provide" => 'datepicker' %>
+    < script  type = " datetime / javascript " > 
+      $ ( document ) . ready ( function ( ) { 
+        $ ( '.datepicker' ) . datepicker ( ) ; 
+      } ) ; 
+    </ script >
     </fieldset>
   </div>
   <div>
