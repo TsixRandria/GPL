@@ -11,18 +11,18 @@
 <h3 class="form-connec-h3">Mes coordonnées</h3>
 <fieldset>					
 <label for="nom"><span class="label"><b>Nom</b></span>
-<input type="text" class="cacheform" id="nom" name="nom" value="">
+<%= debug current_client.nom %>
 </label>
 <label for="prenom"><span class="label"><b>Prénom</b></span>
-<input type="text" class="cacheform" id="prenom" value="" name="">
+<%= debug current_client.prenom %>
 </label>							
 </fieldset>	
 <fieldset>			
 <label for="email1" class="hack_label_email_modifcompte"><span class="label"><b>Email</b></span>
-<input type="text" class="cacheform hack_email_modifcompte" id="email1" value="" name="email1">
+<%= debug current_client.email %>
 </label>		
 <label for="telfixe"><span class="label"><b>Téléphone</b></span>
-<input type="text" class="cacheform" id="telfixe" value="" name="telfixe">
+<%= debug current_client.telephone %>
 </label>	
 </fieldset><a href="modifier_compte.php" class="lien lienconnec" id="modifier_compte">Modifier</a><br><br>
 </form>    
