@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.string "marque"
     t.string "place"
     t.string "vitesse"
-    t.string "type"
+    t.string "types"
     t.boolean "climatiseur"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
