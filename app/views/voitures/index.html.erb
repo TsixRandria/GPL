@@ -21,8 +21,9 @@
           <div class="left paddingp mtop20 mbottom20 imgresp vignvic"><%= image_tag voiture.image_url(:thumb) %></div>
           <h3 class="autolv"><%= voiture.marque %></h3>
           <ul class="paddingul">
+            <li><%= voiture.place %> places</li>
             <li>Boîte <%= voiture.vitesse %></li>
-            <li><%= voiture.type %></li>
+            <li><%= voiture.types %></li>
             <li>Climatisation: <%= voiture.climatiseur %></li>
           </ul>
           <div class="clear"></div>

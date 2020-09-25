@@ -5,7 +5,7 @@ class CreateVoitures < ActiveRecord::Migration[6.0]
       t.string :marque
       t.string :place
       t.string :vitesse
-      t.string :type
+      t.string :types
       t.boolean :climatiseur
       t.string :status
 

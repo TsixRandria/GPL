@@ -34,7 +34,34 @@ Rails.application.routes.draw do
   resources :options
   resources :plannings
   resources :reservations
-  resources :voitures
+  
+  
+  #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :voitures, only: [:index, :show]
+
+    #nouvelle voiture
+    get '/secret-gpl-page/admin/homepage/voitures/new' => 'home_admin#new', :as => 'new_voiture'
+    post '/secret-gpl-page/admin/homepage/voitures' => 'home_admin#create'
+    
+    #edit voiture
+    get '/secret-gpl-page/admin/homepage/voitures/:id/edit' => 'home_admin#edit', :as => 'edit_voiture'
+    #get '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#show', :as => 'voiture'
+    
+    #Màj voiture
+    patch '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#update'
+    
+    #suppression voiture
+    delete '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#destroy'
+
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+
+         #                   voitures GET        /voitures(.:format)              voitures#index
+         #                            POST       /voitures(.:format)              voitures#create
+         #                new_voiture GET        /voitures/new(.:format)          voitures#new
+         #               edit_voiture GET        /voitures/:id/edit(.:format)     voitures#edit
+         #                    voiture GET        /voitures/:id(.:format)          voitures#show
+         #                            PATCH      /voitures/:id(.:format)          voitures#update
+         #                            PUT        /voitures/:id(.:format)          voitures#update
+         #        
 end
