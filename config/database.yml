@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: gp_location_production
-  username: gp_location
-  password: <%= ENV['GP_LOCATION_DATABASE_PASSWORD'] %>
+  # database: gp_location_production
+  # username: gp_location
+  # password: <%= ENV['GP_LOCATION_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
