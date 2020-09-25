@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
  
 
+  
+  get 'article_saint_marie/index'
+  get 'article_aeroport/index'
   resources :locations
   get 'port/port'
 

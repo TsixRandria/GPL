@@ -13,12 +13,15 @@ class LocationsController < ApplicationController
 
     
       if @location.save
-        
-          puts "============================================================================="
-        
+       
+        if @location.lieu_de_depart == "Sainte_Marie"
+          redirect_to article_saint_marie_index_path
+        else @location.lieu_de_depart == "Aéroport_de_la_Réunion"
+          redirect_to article_aeroport_index_path
+        end
         
       else
-        puts "location non valider"
+        
       end
     
   end
