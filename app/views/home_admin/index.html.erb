@@ -1,4 +1,9 @@
-<h1>HomeAdmin#index</h1>
-<p>Find me in app/views/home_admin/index.html.erb</p>
-<h1>Eto rehefa ideconekta</h1>
+<h1>Bienvenue sur la page d'accueil</h1>
+<div>
+	<h2>Liste de toutes les voitures</h2>
+
+</div>
+<p>Pour entrer une voiture, cliquez sur <%= link_to 'new', new_voiture_path%></p>
+
+<p>Pour afficher toutes les voitures, cliquez sur <%= link_to 'afficher', voitures_path%></p>
 <%= link_to "SE DECONNECTER", destroy_admin_session_path, :method => :delete  %>

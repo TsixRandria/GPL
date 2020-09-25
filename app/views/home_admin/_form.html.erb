@@ -1,0 +1,60 @@
+<%= form_with(model: voiture, local: true) do |form| %>
+  <% if voiture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(voiture.errors.count, "error") %> prohibited this voiture from being saved:</h2>
+
+      <ul>
+        <% voiture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= form.label :image, as: :file %>
+    <%= form.file_field :image %>
+
+    <% if @voiture.image? %>
+      <p>
+        <%= image_tag @voiture.image_url %>    
+      </p>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marque %>
+    <%= form.text_field :marque %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vitesse %>
+    <%= form.text_field :vitesse %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :types %>
+  </div>
+
+  <div class="field">
+    <%= form.label :climatiseur %>
+    <%= form.check_box :climatiseur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
