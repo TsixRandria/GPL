@@ -11,10 +11,7 @@
  
 
 
-<% if client_signed_in? %>
-  <%= debug @client.nom %>
 
-<% end %>
 
     
     <%= render "devise/sessions/new" %>
@@ -22,14 +19,7 @@
    
 
 
-    <% if client_signed_in? %>
-      <%= debug @client.nom %>
-      <%= debug @client.prenom %>
-      <%= debug @client.telephone %>
-      <%= debug @client.email %>
-
-    <% end %>
-
+    
 
 
 
@@ -104,6 +94,7 @@
  <h3 class="form-connec-h3" style="padding-top:12px;">Protection des données</h3>
 
  <p class="petitp">Les informations recueillies font l'objet d'un traitemant informatique pour permettre à GP Location d'exécuter la réservation à distance. Si vous ne remplissez pas les champs obligatoires nous ne serons pas en mesure de vous fournir votre bon de réservation.<br/>Conformément à la loi "informatique et libertés" du 6 janvier 1978, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au service client internet via notre <a href="">formulaire de contact</a>.</p>
+
 
  </div>
  </div>

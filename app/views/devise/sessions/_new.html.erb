@@ -28,12 +28,18 @@ return false;
 <h1>Connexion au compte GP Location</h1>
 <div class="grid_465">  
       <div class="fblanc">
-          <form  id="connexion">
+          <div  id="connexion">
             <h3 class="form-connec-h3">J'ai déjà un compte</h3>
+             
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                 
+                <% end %>
+
+        
+            <a href="/clients/password/new" class="forgotmdp">mot de passe oblier</a>
             <%= form_for(resource, as: resource_name, url: new_session_path(resource_name)) do |c| %>
               
-           <button type="button" class="forgotmdp" id="forgotmdp">Mot de passe oublié ?</button>
-          
+           
                   <fieldset class="field">
                   <label  for="email"><span class="label">Mon e-mail </span>
                     <%= c.text_field :email, autofocus: true, autocomplete: "email"%>
@@ -43,29 +49,16 @@ return false;
                   <fieldset>
                   <label for="motdepasse"><span class="label">Mon mot de passe </span>
                       <%= c.password_field :password, autocomplete: "current-password"%>
-                      <%= link_to 'Valider', new_client_session_path,class:'lien lienconnec' %> 
+
+                      <%= c.submit 'Valider', class:'lien lienconnec' %> 
+
                   </label>
                   </fieldset>
             <% end %>
-          </form>
+          </div>
        </div>
 
- <div id="tourfmdp" class="tourform mtop20 none">
-<form action="https://www.gplocation.fr/?fond=moncompte" method="post" name="formmdp" id="formmdp">
-<h3 class="form-forgot-h3">Mot de passe oublié ?</h3>
-<span id="infos_formmdp"></span>
-<div id="ajax-loader-compte" class="none"></div>
-<div id="inputforgotmdp">
-<p>Inscrivez votre email pour recevoir votre nouveau mot de passe.</p>
-<fieldset>
-<input type="hidden" name="action" value="chmdpajax" />
-<label for="email"><span class="label">Mon e-mail </span>
-<input name="email" type="text"/>
-</label> <button type="submit" class="lien lienconnec">Valider</button>
-</fieldset>
-</div>
-</form>
-</div> 
+ 
 
         
       

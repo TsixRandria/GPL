@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+   
+ 
+  get 'clientsession/index'
+   # devise_for :clients, controllers: {
+   #  registration: 'clients/registrations'
+   # }
+
+
 
   resources :contacts
     get '/contact' => 'contacts#new', :as => 'contacter'
