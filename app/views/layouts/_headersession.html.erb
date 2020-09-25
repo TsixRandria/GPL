@@ -5,7 +5,12 @@
         
             <a href="<%=contacter_path%>" class="lien right mright68">Contact</a>
             <a href=" <%= new_client_registration_path %> " class="lien right mright0">Espace client</a>
-            <a href="" class="lien right mright68" > Deconnexion</a>
+
+            
+            <p>
+                <%= link_to 'se deconnecter', destroy_client_session_path, method: :delete, class: 'lien right mright68' %>
+            </p>
+
 
             <a href="/"><img src="/template/gp-location/img/gp-location.png" width="304" height="70" alt="GP Location"/></a>      
         </div>

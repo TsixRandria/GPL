@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.datetime "retour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "voiture"
   end
 
   create_table "modepaies", force: :cascade do |t|
