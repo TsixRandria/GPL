@@ -7,7 +7,7 @@ class DeviseCreateClients < ActiveRecord::Migration[6.0]
       t.string :email,              null: false
       t.string :encrypted_password, null: false
       t.string :nom,                null: false
-      t.string :prenom
+      t.string :prenom, :limit => 15
       t.integer :telephone
 
       ## Recoverable
