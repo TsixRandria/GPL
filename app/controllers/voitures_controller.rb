@@ -25,7 +25,7 @@ class VoituresController < ApplicationController
   # POST /voitures.json
   def create
     @voiture = Voiture.new(voiture_params)
-
+    
     respond_to do |format|
       if @voiture.save
         format.html { redirect_to @voiture, notice: 'Voiture was successfully created.' }
@@ -69,6 +69,6 @@ class VoituresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def voiture_params
-      params.require(:voiture).permit(:image, :marque, :place, :vitesse, :type, :climatiseur, :status)
+      params.require(:voiture).permit(:image, :marque, :place, :vitesse, :climatiseur, :status)
     end
 end
