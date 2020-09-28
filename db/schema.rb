@@ -64,9 +64,11 @@ ActiveRecord::Schema.define(version: 2020_09_21_203456) do
 
   create_table "locations", force: :cascade do |t|
     t.string "lieu_de_depart"
-    t.datetime "depart"
+    t.date "d_depart"
+    t.time "t_depart"
     t.string "lieu_de_retour"
-    t.datetime "retour"
+    t.date "d_retour"
+    t.time "t_retour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

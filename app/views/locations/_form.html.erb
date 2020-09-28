@@ -1,58 +1,65 @@
-<%= form_with(model: location, local: true) do |form| %>
-  
-  <fieldset class="loueur">
-  <div id="gaucheformulaire">
+<div class="formtab">
+  <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
+
+
+  <%= form_with(model: location, local: true) do |form| %>
+    
     <fieldset class="loueur">
+      <div id="gaucheformulaire">
+        <fieldset class="loueur">
 
-    <label for="lieu_d" id="cocheresa">Lieu de départ</label>
+        <label for="lieu_d" id="cocheresa">Lieu de départ</label>
 
-    <%= form.select :lieu_de_depart, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, "class"=>'enabled_msddli_selected' %>
+        <%= form.select :lieu_de_depart, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, "class"=>'enabled_msddli_selected' %>
 
 
-    <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
-    <label for="l_retour" id="resacoche">&nbsp;</label>
-    <input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
-    <span id="ecartcoche">Retour au même endroit</span>
-    
-    
+        <input id="lieu_d_value" name="lieu_d_value" type="hidden" value="#LIEU_D" />
+        <label for="l_retour" id="resacoche">&nbsp;</label>
+
+        <input name="l_retour" type="checkbox" id="l_retour" checked="checked" />
+        <span id="ecartcoche">Retour au même endroit</span>
+        
+        
+        </fieldset>
+      </div>
+
+      <div class="milieuformulaire" >
+        <fieldset>
+        <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
+        <label for="date_d">Départ</label>
+        <%= form.date_field :d_depart, order: [:day, :month, :year] %>
+        <fieldset>
+          <%= form.time_field :t_depart %>
+        </fieldset>
+        </fieldset>
+        
+      </div>
+      <div>
+        <fieldset id="date-retour" style="display:none">
+        <label for="lieu_f">Lieu de retour</label>
+        <%= form.select :lieu_de_retour, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, "class"=>'enabled_msddli_selected' %>
+        
+        <div class="pbottom10"></div>
+        </fieldset>
+      </div>
+
+      <div class="milieuformulaire retourtab">
+        <fieldset>
+        <label for="date_f">Retour</label>
+        <%= form.date_field :d_retour, order: [:day, :month, :year], data:{ provide:'datepicker' } %>
+        
+          <%= form.time_field :t_retour %>
+        </fieldset>
+      </div>
+
+      <div class="actions" >
+        <%= form.submit "louer !", :id => "confirmresa",
+          :class => "tada", :desabled => "disabled" %>
+      </div>
     </fieldset>
   </div>
-
-  <div class="milieuformulaire">
-    <fieldset>
-    <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
-    <label for="date_d">Départ</label>
-    <%= form.datetime_select :depart, order: [:day, :month, :year], "data-provide" => 'datepicker' %>
-    
-    </fieldset>
-  </div>
-  <div>
-    <fieldset id="date-retour" style="display:none">
-    <label for="lieu_f">Lieu de retour</label>
-    <%= form.select :lieu_de_retour, {Aéroport_de_la_Réunion: :Aéroport_de_la_Réunion, Sainte_Marie: :Sainte_Marie}, {}, :class=>"datepicker" %>
-    <input id="lieu_f_value" name="lieu_f_value" type="hidden" value="#LIEU_F" />
-    <div class="pbottom10"></div>
-    </fieldset>
-  </div>
-
-  <div class="milieuformulaire retourtab">
-    <fieldset>
-    <label for="date_f">Retour</label>
-    <%= form.datetime_select :retour, order: [:day, :month, :year], data:{ provide:'datepicker' } %>
-    </fieldset>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "louer !", :id => "confirmresa",
-      :class => "tada", :desabled => "disabled" %>
-  </div>
-</fieldset>
-<% end %>
+  <% end %>
+</div>
 
 
-<% if @location.depart == @location.retour %>
-  
-<% else %>
-  <h1>bien jouer</h1>
-<% end %>
 

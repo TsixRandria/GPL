@@ -21,6 +21,7 @@ class LocationsController < ApplicationController
         end
         
       else
+        puts '========================================'
         
       end
     
@@ -29,6 +30,6 @@ class LocationsController < ApplicationController
 
   private
     def location_params
-      params.require(:location).permit(:lieu_de_depart, :depart, :lieu_de_retour, :retour)
+      params.require(:location).permit(:lieu_de_depart, :d_depart, :lieu_de_retour, :d_retour, :t_retour, :t_depart)
     end
 end

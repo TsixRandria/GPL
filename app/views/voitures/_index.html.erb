@@ -1,0 +1,22 @@
+<% @voitures.each do |voiture| %>
+    <div class="grid_465">
+      <div class="fblanc">
+          <div class="left paddingp mtop20 mbottom20 imgresp vignvic"><%= image_tag voiture.image_url(:thumb) %></div>
+        <h3 class="autolv"><%= voiture.marque %></h3>
+        <ul class="paddingul">
+          <li>Boîte <%= voiture.vitesse %></li>
+          <li><%= voiture.type %></li>
+          <li>Climatisation: <%= voiture.climatiseur %></li>
+        </ul>
+      <div class="clear"></div>
+    </div>
+    <%= link_to 'delete', voiture, method: :delete, data: { confirm: 'Are you sure?' }%>
+  </div>
+
+<% end %>
+<%= link_to 'new', new_voiture_path%>
+       
+      
+          
+      
+            
