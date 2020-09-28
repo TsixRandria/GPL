@@ -85,9 +85,11 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
 
   create_table "locations", force: :cascade do |t|
     t.string "lieu_de_depart"
-    t.datetime "depart"
+    t.date "d_depart"
+    t.time "t_depart"
     t.string "lieu_de_retour"
-    t.datetime "retour"
+    t.date "d_retour"
+    t.time "t_retour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -166,7 +168,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.string "marque"
     t.string "place"
     t.string "vitesse"
-    t.string "types"
+    t.string "type"
     t.boolean "climatiseur"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
