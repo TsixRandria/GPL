@@ -1,5 +1,7 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
 <div class="formtab">
-  <p id="accrocheresa">Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
+  <p id="accrocheresa">
+  Depuis 10 ans, <b>GP Location</b> vous propose sa gamme de voitures de location à la Réunion.<br/><b>Une navette vient vous chercher en 5 minutes à l'aéroport gratuitement !</b></p>
 
 
   <%= form_with(model: location, local: true) do |form| %>
@@ -25,7 +27,7 @@
 
       <div class="milieuformulaire" >
         <fieldset>
-        <img id="ajax-loader-min" src="template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
+        <img id="ajax-loader-min" src="/template/heliconia-location/img/loading-spokes.svg" width="28" height="28" style="display:none" alt="Loading" />
         <label for="date_d">Départ</label>
         <%= form.date_field :d_depart, order: [:day, :month, :year] %>
         <fieldset>
@@ -60,6 +62,7 @@
   </div>
   <% end %>
 </div>
+
 
 
 

@@ -1,51 +1,235 @@
-
-  <link href="./css/style.css" rel="stylesheet" type="text/css"/>
-  <script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js,jquery.select.js,init_selects.js,ga.js" defer></script>
-</head>
-
-
 <%= render 'locations/form', location: @location %>
 <%= render 'voitures/index' %>
+<div id="entour_infos">
+<div id="ajax-loader" style="display: none;"></div>
+<div id="confirm_vehicule" style="display: block;"><div class="confirm-prod selected  largeur fblanc mtop20 " style="display: block;">
+	<div id="reduc_produit_60" style="position:absolute;top:-45px"></div>
+    
+    
 
-<div class="grid_465">
-<div class="fblanc">
-    <div id="listev" class="largeur">
-      <h1>Notre gamme de véhicules de location</h1>
-      <div class="paddingp">
-        <p>GP Location est spécialisée dans la location voiture à bas coût, depuis  plus de 10 ans à la Réunion. Toute notre équipe s'efforce au quotidien  de répondre aux exigences de nos clients, en leur proposant des services  adaptés en fonction de leur besoins.</p>
-        <p>Tous nos véhicules sont contrôlés  entre chaque retour client. Avec GP Location, c'est l'assurance de  rouler avec un vehicule neuf et fiable.</p>
+<% @voitures.each do |voiture| %>
+<div id="entour_infos">
+
+
+      
+        <p class="conf_categ"><%= voiture.marque %></p>
+        <img src="<%= image_tag voiture.image_url(:thumb) %>" alt="Location Catégorie A" width="277" height="165" class="confirm-prod-auto">
+        <p class="tarifstock">2 véhicules en stock</p>
       </div>
-
-      <% @voitures.each do |voiture| %>
-      <div class="grid_465">
-        <div class="fblanc">
-          <div class="left paddingp mtop20 mbottom20 imgresp vignvic"><%= image_tag voiture.image_url(:thumb) %></div>
-          <h3 class="autolv"><%= voiture.marque %></h3>
-          <ul class="paddingul">
-            <li>Boîte <%= voiture.vitesse %></li>
-            <li><%= voiture.type %></li>
-            <li>Climatisation: <%= voiture.climatiseur %></li>
-          </ul>
-          <div class="clear"></div>
+    
+      <div class="grid_5">
+		    <p class="left carac-option"></p>		
+		  <div class="clear"></div>
+	    <h4>Choisissez vos options :</h4>	
+		    <p class="left carac-optionb">
+			<input class="produit_opt optf#REF" id="0-produit_60" name="" type="checkbox" value="">
+				Annulation Covid (voir détails) : 
+				<b class="optionresult">10.00 €</b><br>
+			
+					<div class="ddOutOfVision" id="1-produit_60_msddHolder" style="height: 0px; overflow: hidden; position: absolute;"><select class="produit_opt optf#REF" id="1-produit_60" name="" type="checkbox" tabindex="-1">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select></div><div class="dd ddcommon borderRadius" id="1-produit_60_msdd" tabindex="0" style="width: 45px;"><div class="ddTitle borderRadiusTp"><span class="divider"></span><span class="ddArrow arrowoff"></span><span class="ddTitleText " id="1-produit_60_title"><span class="ddlabel">0</span><span class="description" style="display: none;"></span></span></div><input id="1-produit_60_titleText" type="text" autocomplete="off" class="text shadow borderRadius" style="display: none;"><div class="ddChild ddchild_ border shadow" id="1-produit_60_child" style="z-index: 9999; display: none; position: absolute; visibility: visible; height: 111px;"><ul><li class="enabled _msddli_ selected"><span class="ddlabel">0</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">1</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">2</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">3</span><div class="clear"></div></li></ul></div></div>
+				
+				
+				Conducteur additionnel  : 
+				<b class="rouge optionresult">Gratuit</b>
+				<br>
+					<div class="ddOutOfVision" id="2-produit_60_msddHolder" style="height: 0px; overflow: hidden; position: absolute;"><select class="produit_opt optf#REF" id="2-produit_60" name="" type="checkbox" tabindex="-1">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+          </select></div>
+          <div class="dd ddcommon borderRadius" id="2-produit_60_msdd" tabindex="0" style="width: 45px;">
+            <div class="ddTitle borderRadiusTp">
+                <span class="divider">
+                </span>
+                <span class="ddArrow arrowoff">
+                </span>
+                <span class="ddTitleText " id="2-produit_60_title">
+                <span class="ddlabel">0
+                </span>
+                <span class="description" style="display: none;">
+                </span>
+                </span>
+            </div>
+            <input id="2-produit_60_titleText" type="text" autocomplete="off" class="text shadow borderRadius" style="display: none;">
+            <div class="ddChild ddchild_ border shadow" id="2-produit_60_child" style="z-index: 9999; display: none; position: absolute; visibility: visible; height: 111px;">
+              <ul>
+                <li class="enabled _msddli_ selected"><span class="ddlabel">0</span>
+                    <div class="clear">
+                    </div>
+                </li>
+                <li class="enabled _msddli_"><span class="ddlabel">1</span>
+                    <div class="clear">
+                    </div>
+                </li>
+                <li class="enabled _msddli_"><span class="ddlabel">2</span>
+                    <div class="clear">
+                    </div>
+                </li>
+                <li class="enabled _msddli_"><span class="ddlabel">3</span>
+                    <div class="clear">
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+				
+				
+				Siège bébé (de 0 à 3 ans)  : 
+				<b class="optionresult">9.00 €</b><br>
+					<div class="ddOutOfVision" id="3-produit_60_msddHolder" style="height: 0px; overflow: hidden; position: absolute;"><select class="produit_opt optf#REF" id="3-produit_60" name="" type="checkbox" tabindex="-1">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select></div><div class="dd ddcommon borderRadius" id="3-produit_60_msdd" tabindex="0" style="width: 45px;"><div class="ddTitle borderRadiusTp"><span class="divider"></span><span class="ddArrow arrowoff"></span><span class="ddTitleText " id="3-produit_60_title"><span class="ddlabel">0</span><span class="description" style="display: none;"></span></span></div><input id="3-produit_60_titleText" type="text" autocomplete="off" class="text shadow borderRadius" style="display: none;"><div class="ddChild ddchild_ border shadow" id="3-produit_60_child" style="z-index: 9999; display: none; position: absolute; visibility: visible; height: 111px;"><ul><li class="enabled _msddli_ selected"><span class="ddlabel">0</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">1</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">2</span><div class="clear"></div></li><li class="enabled _msddli_"><span class="ddlabel">3</span><div class="clear"></div></li></ul></div></div>
+				
+				
+				Réhausseur (à partir de 3 ans) : 
+				
+				<b class="optionresult">9.00 €</b><br>
+					<input class="produit_opt optf#REF" id="4-produit_60" name="" type="checkbox" value="">
+				
+				
+				
+				GPS : 
+				<b class="optionresult">27.00 €</b><br>
+		
+        <div class="clear"></div>
+        
+		      <ul class="carac-option mtop10">
+            <li>
+                <span></span><b>Prise en charge à l'aéroport</b>
+            </li>
+            <li>
+                <span></span>Kilométrage illimité
+            </li>
+            <li>
+                <span></span>Assurance tous risques avec franchise
+            </li>
+            <li>
+                <span class="carburant"></span>Carburant : plein à rendre plein
+            </li>
+		     </ul>
         </div>
-      </div>
-      <% end %>
-  	</div>
-</div>
-<div class="clear"></div>
-<h2>Conditions de location</h2>
-<div class="paddingp pbottom20">
-<p><strong>Age minimum :</strong> 23 ans</p>
-<p><strong>Nombre minimum d'années de permis :</strong> 2 ans</p>
-<p><strong>Moyens de paiement : </strong>Par carte bancaire en ligne ou pour les réservations de plus de 150€, acompte de 100€ en ligne et le reste à régler sur place par carte bancaire, espèces, chèque ou chèques vacances.</p>
-<h3>Assurances</h3>
-<p><strong>Assurance :</strong> Tous risques et vol avec franchise</p>
-<p><strong>Montant de la franchise :</strong> 750€</p>
-<p><strong>Caution :</strong>750€ sur place par empreinte bancaire (non encaissée) </p>
-<h3>Prise en charge</h3>
-<p><strong>A l'aéroport Roland Garros :</strong> GP Location vous prend en charge personnellement à l'aéroport. Ceci vous évitera d'attendre au comptoir de l'aéroport après de nombreuses heures de vols et de payer la taxe d'aéroport.</p>
-<p><strong>A Sainte-Marie :</strong> GP Location vous livre le véhicule à l'adresse de votre choix. Entrez simplement l'adresse dans le système avant le paiement.</p>
-</div>
-</div>
-<div class="clear"></div>    
+    
+    <ul class="carac-prod">
+        <li><span class="carac-carbu"></span><%= voiture.types %></li>
+        <li><span class="carac-boite"></span><%= voiture.vitesse %></li>
+        <li><span class="carac-clim"></span><%= voiture.climatiseur %></li>
+        <li><span class="carac-places"></span><%= voiture.place %></li>
+        
+            <li><span class="carac-portes"></span>2 portes</li>
+        
+    </ul>
+    <% end %>
+    <div id="prix_produit">
+		
+    
+        
+		<b style="position:absolute;top:135px;right:20px;font-size:12px;text-align:right;display:none">
+			Paiement partiel :<br> 
+			NBJOURS : #PAIEMENT_PARTIEL_NBJOURS / MT3DS : #MT3DS<br> 
+			#PAIEMENT_PARTIEL_CONFIG<br>
+			Actif : 1
+		</b>
+		
+		<p class="montant-acompte">dont 100 € d'acompte</p>
+		
+		<p class="confirm-tarif confirm-tarif-acompte ">228.00 €</p>		
+		<p class="confirm-promo  "></p>
+	</div>
+	
+	
+		
+	<a class="confirmresa tada" href="module-resa/module_resa.inc.php?confirmresa=1&amp;produit=1&amp;token=92a4eb148854ddde3ae377823ad9780b&amp;tous_id_produit=60">Réserver</a>
+	
+	
+	<div class="clear"></div>
+	
+
+	
+	<!--<div class="dispo">Disponible(2)</div>-->
+ <p class="center"><a href="#" id="infos_60" class="mored"><span></span>Détails</a></p> 	
+	
+    
+    
+ 
+	
+ <
+  <div class="hackvid">
+  <img src="/template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
+  <h2>Besoin d'une voiture de location à l'aéroport de la Réunion Roland-Garros ?</h2>
+  <div class="largeur mbottom0">
+  <img src="/template/gp-location/img/voiture-accueil.png" width="300" height="198" class="left mright20  restabl10pr imgresp" alt="Location voiture à l'aéroport de la Réunion Roland-Garros"/>
+  <p class="paddingp mbottom10">Pour louer une voiture à l'aéroport de la Réunion Roland-Garros, rien de plus simple ! <b>Réservez votre voiture en ligne et pas cher avec GP Location.</b></p>
+  <div class="droiteaccueil">
+  <div class="fblanc mbottom20">
+  <div class="grid_6 paveaccueil">
+  <span class="clavier"></span>
+  <b>1</b><h4>Vous effectuez votre réservation en ligne</h4>
+  <p class="paveaccueilp"><strong>Réservez 7j/7 24h/24</strong> votre voiture de location au meilleur prix sur notre site Internet<strong>.</strong></p>
+  </div>
+  <div class="grid_6 paveaccueil">
+  <span class="imprimer"></span>
+  <b>2</b><h4>Confirmation de<br/>
+  votre location</h4>
+  <p class="paveaccueilp"><strong>Votre confirmation de réservation</strong> est envoyée par email prête à être imprimée.</p>
+  </div>
+  <div class="clear"></div>
+  </div>
+  </div>
+  </div>
+  <div class="clear"></div>
+  <div class="largeur">
+  <h2>Votre voiture de location à l'aéroport de la Réunion Roland-Garros !</h2>
+  <div id="avantages">
+  <h4>Les avantages GP Location</h4>
+  <ul>
+  <li>Prise en charge à l'aéroport ou au port avec votre véhicule</li>
+  <li>Kilométrage illimité, assurances incluses</li>
+  <li>Assistance 7j/7, 24h/24</li>
+  <li>Large choix de véhicules récents</li>
+  <li>Ouvert 7j/7 y compris jours fériés</li>
+  </ul>
+  </div>
+  <div class="paddingp">
+  <p>L’aéroport international Roland Garros est situé sur la commune de Sainte-Marie, au nord de l’île de la Réunion. Il a été nommé ainsi en l’honneur du célèbre aviateur, né à Saint-Denis, tout près d'ici.</p>
+  <p><strong>Dès votre arrivée à l'aéroport, notre agence de location de voiture, GP location, vous prend en charge.</strong></p>
+  <p>Étant <strong>ouverts sept jours sur sept, y compris les jours fériés</strong>, nous serons disponibles pour vous accueillir à tout moment de la journée, quelle que soit l'heure de votre arrivée.</p>
+  <p><strong>Nous vous attendrons dès votre sortie de l'avion, avec votre nom inscrit sur une pancarte.</strong> Nous vous conduirons à votre véhicule de location et pourrons vous remettre les clés rapidement.</p>
+  <p>Que vous veniez sur l’île de la Réunion pour vos vacances ou pour un voyage d'affaires, vous trouverez un véhicule adapté à vos besoins au sein de notre flotte automobile.</p>
+  <p><strong>Nos tarifs attractifs comprennent l'assistance sept jours sur sept, ainsi que le kilométrage illimité et une assurance tous risques.</strong> Tout est donc mis en œuvre pour que vous passiez un séjour agréable sur cette île paradisiaque qu’est la Réunion.</p>
+  <h2>Que visiter à la Réunion depuis l'aéroport Roland Garros ?</h2>
+  <p>À bord de votre voiture de location, partez explorer l’île de la Réunion directement depuis l'aéroport Roland Garros. Le code de la route étant le même qu'en métropole, vous ne devriez pas avoir de problème lié à la conduite.</p>
+  <p>Non loin de là se trouve la ville de Saint-Denis, labellisée « Ville d'Art et d'Histoire ». Plus de 50 monuments historiques, dont des maisons créoles et des bâtiments coloniaux, se succèdent à partir du rond-point de la Victoire et tout le long de la rue de Paris. Ne manquez pas la visite du jardin de l'État, qui abrite le Museum d'histoire naturelle, où vous découvrirez de nombreuses plantes exotiques.</p>
+  <p>Avec le kilométrage illimité inclus dans notre offre, vous pourrez vous rendre plus loin et rejoindre les plus belles plages de l'île de la Réunion. Votre voiture de location vous facilitant le déplacement, n'hésitez pas à vous rendre à la station balnéaire de Saint-Gilles-les-Bains. Vous pourrez y visiter le seul aquarium de l’île de la Réunion, le musée de Villèle ou encore le jardin d'Éden.</p>
+  </div>
+  <div class="fblanc avisbas">
+  <div id="bavis" vocab="http://schema.org/" typeof="Corporation">
+  <h4>Avis de nos clients</h4>
+  <ul class="ulvote ulrtl">
+  <li class="fu"></li>
+  <li class="fu"></li>
+  <li class="fu"></li>
+  <li class="fu"></li>
+  <li class="fu"></li>
+  </ul>
+  <div class="clear"></div>
+  <span class="none" property="name">GP Location</span>
+  <p property="aggregateRating" typeof="AggregateRating"><b><span property="ratingValue">4.8</span>/5</b> sur <span property="ratingCount">107</span> avis de <a href="https://www.rentiles.fr/location-vehicules-reunion.html" target="_blank">Rentîles</a></p>
+  </div>
+  <div id="avisaccueil">
+  <p><strong>Joel.P pour une location à Aéroport de la Réunion Roland Garros du Vendredi 13  Mars 2020  au Vendredi 20  Mars 2020  :</strong></p>
+  <p><em>“Très bon accueil, prix raisonnable et avoir fait très rapidement suite à notre départ précipité pour cause de pandémie !<br/>Je recommande et n’hésiterai pas à l’occasion de réserver à nouveau !”</em></p>
+  </div>    
+  </div>
+  <img src="/client/cache/contenu/956_______aeroport-roland-garros_114.jpg" alt="" title="" border="0" class="imgpretrait" />
+  </div>
+  </div>
+  <div class="clear"></div>    
