@@ -62,10 +62,11 @@ class HomeAdminController < ApplicationController
   # DELETE /voitures/1.json
   def destroy
     @voiture.destroy
-    respond_to do |format|
-      format.html { redirect_to voitures_admin_path, notice: 'Voiture was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to voitures_admin_path, notice: 'Voiture was successfully destroyed.'
+    # respond_to do |format|
+    #   format.html { redirect_to voitures_admin_path, notice: 'Voiture was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   #resources :voitures, only: [:index, :show]
 
     #afficher toutes les voitures pour le client
-    get '/voitures' => 'voiture#index', :as => 'voitures'
+    get '/voitures' => 'voitures#index', :as => 'voitures'
 
     #afficher toutes les voitures pour l'admin
     get '/secret-gpl-page/admin/homepage/voitures' => 'home_admin#index', :as => 'voitures_admin'
