@@ -28,11 +28,16 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     position: relative;
     width: 100%;
 }
+p, li{
+    text-align: justify;
+    line-height: 25px;
+}
 
 .largeur {
     position: relative;
     margin: 0 auto;
     max-width: 956px;
+   
 }
 
 .largeurb {

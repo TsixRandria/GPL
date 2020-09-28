@@ -28,11 +28,13 @@
         position: relative;
         width: 100%;
     }
+    
 
     .largeur {
         position: relative;
         margin: 0 auto;
         max-width: 956px;
+        
     }
 
     .largeurb {
