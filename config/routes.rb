@@ -45,15 +45,21 @@ Rails.application.routes.draw do
   
   
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :voitures, only: [:index, :show]
+  #resources :voitures, only: [:index, :show]
+
+    #afficher toutes les voitures pour le client
+    get '/voitures' => 'voiture#index', :as => 'voitures'
+
+    #afficher toutes les voitures pour l'admin
+    get '/secret-gpl-page/admin/homepage/voitures' => 'home_admin#index', :as => 'voitures_admin'
 
     #nouvelle voiture
     get '/secret-gpl-page/admin/homepage/voitures/new' => 'home_admin#new', :as => 'new_voiture'
-    post '/secret-gpl-page/admin/homepage/voitures' => 'home_admin#create'
+    post '/voitures' => 'home_admin#create'
     
     #edit voiture
     get '/secret-gpl-page/admin/homepage/voitures/:id/edit' => 'home_admin#edit', :as => 'edit_voiture'
-    #get '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#show', :as => 'voiture'
+    get '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#show', :as => 'voiture'
     
     #Màj voiture
     patch '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#update'

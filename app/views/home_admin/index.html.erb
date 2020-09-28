@@ -1,9 +1,27 @@
 <h1>Bienvenue sur la page d'accueil</h1>
 <div>
 	<h2>Liste de toutes les voitures</h2>
+	<% @voitures.each do |voiture| %>
+      <div class="grid_465">
+        <div class="fblanc">
+          <div class="left paddingp mtop20 mbottom20 imgresp vignvic"><%= image_tag voiture.image_url(:thumb) %></div>
+          <h3 class="autolv"><%= voiture.marque %></h3>
+          <ul class="paddingul">
+            <li><%= voiture.place %> places</li>
+            <li>Boîte <%= voiture.vitesse %></li>
+            <li><%= voiture.types %></li>
+            <li>Climatisation: <%= voiture.climatiseur %></li>
+          </ul>
+            <%= link_to 'show', voiture_path(voiture)%>
+            <%= link_to 'edit', edit_voiture_path(voiture)%>
+            <%= link_to 'Destroy', voiture, :method => :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="clear"></div>
+        </div>
+      </div>
+
+          <% end %>
 
 </div>
 <p>Pour entrer une voiture, cliquez sur <%= link_to 'new', new_voiture_path%></p>
 
-<p>Pour afficher toutes les voitures, cliquez sur <%= link_to 'afficher', voitures_path%></p>
 <%= link_to "SE DECONNECTER", destroy_admin_session_path, :method => :delete  %>

@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @voiture.image_url(:thumb) %>
+</p>
+<p>
   <strong>Marque:</strong>
   <%= @voiture.marque %>
 </p>
