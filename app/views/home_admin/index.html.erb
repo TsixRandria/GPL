@@ -14,7 +14,9 @@
           </ul>
             <%= link_to 'show', voiture_path(voiture)%>
             <%= link_to 'edit', edit_voiture_path(voiture)%>
-            <%= link_to 'Destroy', voiture, :method => :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to(delete_car_path(voiture.id), class: "btn btn-danger", method: 'delete', data: { confirm: "Are you sure?" }) do %>
+                <i class="ti-trash"></i>&nbsp;&nbsp;Supprimer
+            <%end%>
           <div class="clear"></div>
         </div>
       </div>

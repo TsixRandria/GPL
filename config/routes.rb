@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     patch '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#update'
     
     #suppression voiture
-    delete '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#destroy'
+    delete '/secret-gpl-page/admin/homepage/voitures/:id' => 'home_admin#destroy', :as => 'delete_car'
 
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
