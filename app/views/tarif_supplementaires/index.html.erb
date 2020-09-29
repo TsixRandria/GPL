@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tarif Supplementaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tarif_supplementaires.each do |tarif_supplementaire| %>
+      <tr>
+        <td><%= tarif_supplementaire.libelle %></td>
+        <td><%= link_to 'Show', tarif_supplementaire %></td>
+        <td><%= link_to 'Edit', edit_tarif_supplementaire_path(tarif_supplementaire) %></td>
+        <td><%= link_to 'Destroy', tarif_supplementaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tarif Supplementaire', new_tarif_supplementaire_path %>

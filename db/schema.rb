@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_090022) do
+ActiveRecord::Schema.define(version: 2020_09_29_071410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,13 +47,12 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.string "ref"
     t.string "type"
-    t.bigint "voiture_id"
     t.bigint "assurance_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["assurance_id"], name: "index_categories_on_assurance_id"
-    t.index ["voiture_id"], name: "index_categories_on_voiture_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -99,15 +98,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.index ["type_tarif_id"], name: "index_modepaies_on_type_tarif_id"
   end
 
-  create_table "options", force: :cascade do |t|
-    t.integer "conducteur"
-    t.integer "siegebebe"
-    t.integer "rehausseur"
-    t.boolean "gps"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "paiements", force: :cascade do |t|
     t.integer "accompte"
     t.integer "total"
@@ -128,22 +118,44 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.index ["voiture_id"], name: "index_plannings_on_voiture_id"
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.string "numero_vol"
-    t.string "compagnie"
-    t.bigint "tarif_id"
+  create_table "reservation_options", force: :cascade do |t|
+    t.integer "quantite"
+    t.bigint "tarif_supplementaire_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tarif_id"], name: "index_reservations_on_tarif_id"
+    t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
   end
 
-  create_table "type_options", force: :cascade do |t|
-    t.bigint "reservation_id"
-    t.bigint "option_id"
+  create_table "reservations", force: :cascade do |t|
+    t.string "lieu_depart"
+    t.datetime "date_depart"
+    t.datetime "heure_depart"
+    t.string "lieu_retour"
+    t.datetime "date_retour"
+    t.datetime "heure_retour"
+    t.string "numero_vol"
+    t.string "compagnie"
+    t.integer "montant_total"
+    t.bigint "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_id"], name: "index_type_options_on_option_id"
-    t.index ["reservation_id"], name: "index_type_options_on_reservation_id"
+    t.index ["client_id"], name: "index_reservations_on_client_id"
+  end
+
+  create_table "tarif_supplementaires", force: :cascade do |t|
+    t.string "libelle"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tarifs", force: :cascade do |t|
+    t.integer "prix"
+    t.bigint "voiture_id"
+    t.bigint "reservation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_tarifs_on_reservation_id"
+    t.index ["voiture_id"], name: "index_tarifs_on_voiture_id"
   end
 
   create_table "type_tarifs", force: :cascade do |t|
@@ -160,8 +172,11 @@ ActiveRecord::Schema.define(version: 2020_09_23_090022) do
     t.string "types"
     t.boolean "climatiseur"
     t.string "status"
+    t.string "portes"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
 end

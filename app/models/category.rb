@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-	belongs_to :voiture
+	has_many :voiture
 	belongs_to :assurance
 end
