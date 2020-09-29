@@ -8,28 +8,16 @@
 <source type="video/webm" src="/template/gp-location/img/reunion.webm">
 </video>
 <div class="largeur"><h1>Location de voiture Aéroport de la Réunion</h1></div>
-<script type="text/javascript">		
-//<![CDATA[
-var p1 = 'Merci de bien vouloir s\351lectionner une date de d\351part de location.';
-var p2 = 'Pour louer aujourd\'hui, merci de contacter directement Cargo Location Perpignan au 04 68 35 86 35.';
-var p3 = 'Merci de bien vouloir s\351lectionner une date de fin de location.';
-var p4 = 'Vous ne pouvez louer plus de '+ nbJoursMax + ' jours, veuillez saisir \340 nouveau vos dates de location.' + "\n" + 'Contactez votre agence pour toute dur\351e de location sup\351rieure.';
-var p5 = 'Veuillez s\351lectionner une date de d\351part de location inf\351rieure \340 celle de fin de location.';
-var p6 = 'Vous ne pouvez pas louer ce véhicule pour moins de |x| jours, veuillez saisir \340 nouveau vos dates de location ou choisir un autre véhicule.';
-//var p7 = 'Vous ne pouvez pas louer un camping-car pour moins de 7 jours, veuillez saisir \340 nouveau vos dates de location.';
-var p8 = 'Veuillez nous excuser, l\'offre "Formule + prix au KM" n\'est pas disponible pour un week-end seulement.' + "\n" + 'Vous pouvez soit cocher l\'option "Forfait", soit augmenter la durée de votre location';
-var p9 = 'Merci de bien vouloir s\351lectionner un lieu de d\351part.';
-var p10 = 'Merci de bien vouloir s\351lectionner un lieu de retour.';
-</script><input type="hidden" name="fond" value="#FOND" />
+
 <img src="template/gp-location/img/loading-spokes.svg" width="80" height="80" alt="Location de véhicules" class="none"/>
 <div id="fond-resa"></div>
 <div class="largeur">
-<div id="formresa" class="lang1" action="" method="post">
+<div id="formresa" class="lang1" >
 
 
 <%= render 'locations/form', location: @location %>
 
-
+</div>
 <fieldset>
 <div id="list_produits" style="display:none">
 <div id="produits">
@@ -106,7 +94,7 @@ Nous vous remercions pour votre réservation, celle-ci a bien été prise en com
 
 
 	<div class="hackvid">
-		<img src="template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
+		<img src="/template/gp-location/img/assurance_lang1.png" alt="Location Voiture Guadeloupe" width="956" height="50" id="rassupr" class="imgresp"/>
 		<h2>Besoin d'une voiture de location à la Réunion ?</h2>
 		<div class="largeur">
 			<img src="template/gp-location/img/dacia-logan.png" width="300" height="206" class="left mright20 restabl10 imgresp" alt="Location voiture Réunion"/>
