@@ -29,7 +29,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     width: 100%;
 }
 p, li{
-    text-align: justify;
+    
     line-height: 25px;
 }
 
