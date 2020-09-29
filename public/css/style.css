@@ -3239,6 +3239,10 @@
             transform: scale3d(1,1,1);
         }
     }
+    .toerana{
+        
+        display: none;
+    }
     .ora{
         height: 30px;
         margin-left: 10px;
