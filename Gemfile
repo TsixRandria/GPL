@@ -67,3 +67,4 @@ gem 'carrierwave'
 
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'table_print'

@@ -1,0 +1,22 @@
+<%= form_with(model: reservation_option, local: true) do |form| %>
+  <% if reservation_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation_option.errors.count, "error") %> prohibited this reservation_option from being saved:</h2>
+
+      <ul>
+        <% reservation_option.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :quantite %>
+    <%= form.number_field :quantite %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

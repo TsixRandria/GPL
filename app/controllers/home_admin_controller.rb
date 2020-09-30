@@ -14,6 +14,10 @@ class HomeAdminController < ApplicationController
     @voitures = Voiture.all
   end
 
+  def contact
+    @contacts = Contact.all
+  end
+
   # GET /voitures/1
   # GET /voitures/1.json
   def show

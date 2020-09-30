@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
    
  
+  resources :reservation_options
+  resources :tarif_supplementaires
+  resources :tarifs
   get 'clientsession/index'
    # devise_for :clients, controllers: {
    #  registration: 'clients/registrations'
@@ -11,7 +14,12 @@ Rails.application.routes.draw do
 
   resources :contacts
     get '/contact' => 'contacts#new', :as => 'contacter'
-  
+
+
+    #afficher tous les contacts
+    get '/secret-gpl-page/admin/homepage/contacts' => 'home_admin#contact', :as => 'contacts_admin'
+
+
   devise_for :admins, path: '/secret-gpl-page/admin', :skip => [:registrations],
     controllers: { 
     sessions: "admins/sessions"
@@ -39,7 +47,6 @@ Rails.application.routes.draw do
   resources :modepaies
   resources :categories
   resources :assurances
-  resources :options
   resources :plannings
   resources :reservations
   

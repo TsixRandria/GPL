@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantite:</strong>
+  <%= @reservation_option.quantite %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_option_path(@reservation_option) %> |
+<%= link_to 'Back', reservation_options_path %>

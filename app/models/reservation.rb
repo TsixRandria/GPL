@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
+	#belongs_to :client
 	belongs_to :tarif
-	has_one :reservation
-	has_many :typeOption
+	has_many :reservation_options
 end
