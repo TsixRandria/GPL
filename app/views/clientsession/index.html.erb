@@ -11,7 +11,7 @@
 <h3 class="form-connec-h3">Mes coordonnées</h3>
 <fieldset>					
 <label for="nom"><span class="label"><b>Nom</b></span>
-<%= debug current_client.nom %>
+<%= debug current_client.nom.upcase! %>
 </label>
 <label for="prenom"><span class="label"><b>Prénom</b></span>
 <%= debug current_client.prenom %>
@@ -24,7 +24,7 @@
 <label for="telfixe"><span class="label"><b>Téléphone</b></span>
 <%= debug current_client.telephone %>
 </label>	
-</fieldset><a href="modifier_compte.php" class="lien lienconnec" id="modifier_compte">Modifier</a><br><br>
+</fieldset><a href="/" class="lien lienconnec" id="modifier_compte">Modifier</a><br><br>
 </form>    
 <div class="clear"></div>
 </div>
@@ -34,7 +34,7 @@
 <h3 class="form-connec-h3">Modifier mon mot de passe</h3>
 
 
-<form action="https://www.gplocation.fr/?fond=moncompte" method="post" name="formmdp" id="formmdp"> 
+<form action=" " method="get" name="formmdp" id="formmdp"> 
 <input type="hidden" name="action" value="modifiercompte">
 <input type="hidden" name="action2" value="comptemdp">
 <fieldset>
@@ -50,6 +50,7 @@
 <button type="submit" class="lien lienconnec">Valider</button>
 </fieldset>
 </form>
+
 </div>
 <div class="fblanc grid_465 mleft20 mtop10">
 <h3 class="form-connec-h3">Liste de mes réservations</h3>
