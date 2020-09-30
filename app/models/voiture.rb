@@ -1,5 +1,5 @@
 class Voiture < ApplicationRecord
-	belongs_to :category
+	#belongs_to :category
 	has_one :tarif
 	#has_many :planning
 

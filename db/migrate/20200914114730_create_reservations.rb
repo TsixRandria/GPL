@@ -10,7 +10,8 @@ class CreateReservations < ActiveRecord::Migration[6.0]
       t.string :numero_vol
       t.string :compagnie
       t.integer :montant_total
-      t.belongs_to :client, index: true
+      #t.belongs_to :client, index: true
+      t.belongs_to :tarif, index: true
 
       t.timestamps
     end

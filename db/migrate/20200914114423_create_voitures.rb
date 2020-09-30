@@ -9,7 +9,7 @@ class CreateVoitures < ActiveRecord::Migration[6.0]
       t.boolean :climatiseur
       t.string :status
       t.string :portes
-      t.belongs_to :category, index: true
+      #t.belongs_to :category, index: true
       
 
       t.timestamps

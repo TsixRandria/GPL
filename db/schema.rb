@@ -121,8 +121,10 @@ ActiveRecord::Schema.define(version: 2020_09_29_071410) do
   create_table "reservation_options", force: :cascade do |t|
     t.integer "quantite"
     t.bigint "tarif_supplementaire_id"
+    t.bigint "reservation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_reservation_options_on_reservation_id"
     t.index ["tarif_supplementaire_id"], name: "index_reservation_options_on_tarif_supplementaire_id"
   end
 
@@ -136,25 +138,26 @@ ActiveRecord::Schema.define(version: 2020_09_29_071410) do
     t.string "numero_vol"
     t.string "compagnie"
     t.integer "montant_total"
-    t.bigint "client_id"
+    t.bigint "tarif_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_reservations_on_client_id"
+    t.index ["tarif_id"], name: "index_reservations_on_tarif_id"
   end
 
   create_table "tarif_supplementaires", force: :cascade do |t|
     t.string "libelle"
+    t.integer "prix"
+    t.bigint "tarif_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tarif_id"], name: "index_tarif_supplementaires_on_tarif_id"
   end
 
   create_table "tarifs", force: :cascade do |t|
     t.integer "prix"
     t.bigint "voiture_id"
-    t.bigint "reservation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_tarifs_on_reservation_id"
     t.index ["voiture_id"], name: "index_tarifs_on_voiture_id"
   end
 
@@ -173,10 +176,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_071410) do
     t.boolean "climatiseur"
     t.string "status"
     t.string "portes"
-    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_voitures_on_category_id"
   end
 
 end

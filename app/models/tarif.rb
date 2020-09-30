@@ -1,4 +1,4 @@
 class Tarif < ApplicationRecord
 	belongs_to :voiture
-	belongs_to :reservation
+	has_many :reservation
 end
